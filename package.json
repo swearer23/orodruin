@@ -8,6 +8,10 @@
   },
   "dependencies": {
     "element-ui": "^2.15.6",
-    "nuxt": "^2.15.8"
+    "nuxt": "^2.15.8",
+    "less-loader": "^7.1.0",
+    "less": "^4.1.2"
+  },
+  "devDependencies": {
   }
 }
