@@ -1,4 +1,5 @@
 module.exports = {
+  ssr: true,
   plugins: [
     "~/plugins/element-ui.js",
   ],
@@ -10,5 +11,15 @@ module.exports = {
   },
   build: {
     vendor: ['element-ui']
-  }
+  },
+  serverMiddleware: [
+    {
+      path: "/api/get-theme",
+      handler: '~/server-middleware/get-theme.js'
+    },
+    {
+      path: "/api/logger",
+      handler: '~/server-middleware/logger.js'
+    }
+  ]
 }

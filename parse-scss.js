@@ -1,3 +1,5 @@
+import { resolve } from 'path'
+
 let { parse, stringify } = require('scss-parser')
 
 let { readFile } = require('fs')
@@ -58,7 +60,7 @@ const splitByMultipleComment = ast => {
   for (let item of ast.value) {
     if (isMCSectionTitle(item)) {
       const sectionTitle = {
-        title: item.value,
+        title: item.value.split("\n").shift().trim(),
         declarations: []
       }
       sectionList.push(sectionTitle)
@@ -74,22 +76,24 @@ const splitByMultipleComment = ast => {
   return sectionList
 }
 
-const content = readFile('element-variables.scss', 'utf8', (err, data) => {
-  let ast = parse(data)
-  // console.log(JSON.stringify(ast.value))
-  const sectionList = splitByMultipleComment(ast)
-  sectionList.forEach(section => {
-    console.log(section)
+const main = () => {
+  return new Promise((resolve, reject) => {
+    readFile('element-variables.scss', 'utf8', (err, data) => {
+      if (err) {
+        reject(err)
+      }
+      let ast = parse(data)
+      // console.log(JSON.stringify(ast.value))
+      const sectionList = splitByMultipleComment(ast)
+      // sectionList.forEach(section => {
+      //   console.log(section)
+      // })
+      // console.log(sectionList)
+      resolve(sectionList)
+    })
   })
-  //console.log(ast.value[0].start, ast.value[0].next)
-  /*
-  let sample = ast.value.filter(item => {
-    return item.type == 'comment_multiline'
-  })
-  console.log(sample)
-  */
-  // console.log(JSON.stringify(sample, null, 2))
-})
+}
 
+export default main
 
 // Create an AST from a string of SCSS

@@ -5,42 +5,50 @@
     </el-header>
     <el-container>
       <el-main class="content-main">
-        <section>
-          <h2>颜色</h2>
-          <el-row :gutter="20">
-            <el-col :span="4" class="color-palette" v-for="(i, index) in 6">
-              <div class="color-palette-card">
-                <div class="primary-color">
-                  <p class="color-code">
-                    Primary Color
-                    <span>#409EFF</span>
-                  </p>
-                </div>
-                <div class="sub-colors">
-                  <div></div>
-                  <div></div>
-                </div>
-              </div>
-            </el-col>
-          </el-row>
-        </section>
+        <ColorDisplay :rawColor="colorDef" />
         <section>
           <h2>按钮</h2>
           <el-button type="danger">danger</el-button>
         </section>
       </el-main>
       <el-aside class="content-aside">
-        颜色
+        颜色 {{runtime}}
       </el-aside>
     </el-container>
   </el-container>
 </template>
 <script>
+import axios from 'axios'
+import ColorDisplay from '@/components/colorDisplay'
 export default {
   name: 'editor',
+  components: {
+    ColorDisplay
+  },
   data: () => {
-    return {}
-  }
+    return {
+      runtime: null,
+      theme: null
+    }
+  },
+  computed: {
+    colorDef () {
+      return this.theme.find(section => {
+        return section.title === "Color"
+      }).declarations
+    }
+  },
+  async asyncData() {
+    try {
+      const theme = await axios.get('http://localhost:3000/api/get-theme')
+      return {theme: theme.data}
+    } catch (err) {
+      console.error(err)
+    }
+  },
+  mounted () {
+    console.log(this.colorDef)
+  },
 }
 </script>
 <style lang="less">
@@ -55,50 +63,6 @@ export default {
   }
   .main-container {
     padding: 20px 100px;
-  }
-  .color-palette {
-    border-radius: 4px;
-    padding: 10px;
-    margin-bottom: 10px;
-    div.color-palette-card {
-      position: relative;
-      background: #fff;
-      border: 1px solid #e6e6e6;
-      border-radius: 4px;
-      width: 100%;
-      .primary-color {
-        p.color-code {
-          width: calc(100% - 20px);
-          padding: 10px;
-          font-size: 14px;
-          line-height: 24px;
-          color: #FFFFFF;
-          margin: 0;
-          span {
-            font-size: 12px;
-            opacity: 0.69;
-          }
-        }
-        width: 100%;
-        aspect-ratio: 2/1;
-        background: #409eff;
-      }
-      .sub-colors {
-        width: 100%;
-        aspect-ratio: 2/1;
-        display: flex;
-        div {
-          flex: 1;
-          height: 100%;
-        }
-        :first-child {
-          background-color: #a0cfff;
-        }
-        :last-child {
-          background-color: #ecf5ff;
-        }
-      }
-    }
   }
   .content-aside {
     background: #fff;
