@@ -4,7 +4,7 @@
       class="primary-color"
       :style="style"
     >
-      <input type="color" :value="displayValue" />
+      <input type="color" :value="displayValue" v-on:change="onValueChanged" />
       <p class="color-code">
         {{ displayName }}
         <span>{{ displayValue }}</span>
@@ -41,6 +41,11 @@ export default {
         style.color = '#909399'
       }
       return style
+    }
+  },
+  methods: {
+    onValueChanged (event) {
+      console.log(event.currentTarget.value)
     }
   }
 }

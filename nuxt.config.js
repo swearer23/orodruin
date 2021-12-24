@@ -18,6 +18,10 @@ module.exports = {
       handler: '~/server-middleware/get-theme.js'
     },
     {
+      path: "/api/update-theme",
+      handler: '~/server-middleware/update-theme.js'
+    },
+    {
       path: "/api/logger",
       handler: '~/server-middleware/logger.js'
     }

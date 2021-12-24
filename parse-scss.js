@@ -1,6 +1,4 @@
-import { resolve } from 'path'
-
-let { parse, stringify } = require('scss-parser')
+let { parse } = require('scss-parser')
 
 let { readFile } = require('fs')
 
@@ -65,6 +63,7 @@ const splitByMultipleComment = ast => {
       }
       sectionList.push(sectionTitle)
     } else if (item.type === 'declaration') {
+      console.log(item)
       if (item.value[0].type !== 'property') {
         console.error(item.value)
       }
@@ -83,7 +82,6 @@ const main = () => {
         reject(err)
       }
       let ast = parse(data)
-      // console.log(JSON.stringify(ast.value))
       const sectionList = splitByMultipleComment(ast)
       // sectionList.forEach(section => {
       //   console.log(section)
