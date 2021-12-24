@@ -4,8 +4,11 @@
       <h4>ElementUI设计语言生成器 Orodruin ElementUI Theme Editor</h4>
     </el-header>
     <el-container>
-      <el-main class="content-main">
-        <ColorDisplay :rawColor="colorDef" />
+      <el-main
+        v-if="theme.length"
+        class="content-main"
+      >
+        <Color :colors="colors" />
         <section>
           <h2>按钮</h2>
           <el-button type="danger">danger</el-button>
@@ -18,37 +21,36 @@
   </el-container>
 </template>
 <script>
-import axios from 'axios'
-import ColorDisplay from '@/components/colorDisplay'
+import Color from '@/components/color/section'
+import { mapActions, mapState } from 'vuex'
 export default {
   name: 'editor',
   components: {
-    ColorDisplay
+    Color
   },
   data: () => {
     return {
-      runtime: null,
-      theme: null
+      runtime: null
     }
   },
-  computed: {
-    colorDef () {
-      return this.theme.find(section => {
+  computed: mapState({
+    theme: state => state.theme,
+    colors: state => {
+      return state.theme.find(section => {
         return section.title === "Color"
       }).declarations
     }
-  },
+  }),
   async asyncData() {
-    try {
-      const theme = await axios.get('http://localhost:3000/api/get-theme')
-      return {theme: theme.data}
-    } catch (err) {
-      console.error(err)
-    }
+  },
+  created() {
+    this.getTheme()
   },
   mounted () {
-    console.log(this.colorDef)
   },
+  methods: {
+    ...mapActions({getTheme: 'get'})
+  }
 }
 </script>
 <style lang="less">
