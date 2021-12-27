@@ -12,6 +12,15 @@ export const actions = {
     } catch (err) {
       console.error(err)
     }
+  },
+
+  async updateTheme (context, payload) {
+    try {
+      const theme = await axios.post('http://localhost:3000/api/update-theme', payload)
+      context.commit('onThemeUpdated', theme.data)
+    } catch (err) {
+      console.error(err)     
+    }
   }
 }
 

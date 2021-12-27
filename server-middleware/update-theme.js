@@ -1,8 +1,12 @@
 import { parse, stringify } from 'scss-parser'
 import { cloneDeep } from 'lodash'
 import { readFile } from 'fs'
+import { v4 as uuidv4 } from 'uuid';
+import generateScssFile from './generate-scss'
+import parseScssFile from './parse-scss'
 
-const updateColor = async (property, value) => {
+const updateColor = async (property, value, sessionId) => {
+  const uuid = sessionId ?? uuidv4()
   return new Promise((resolve, reject) => {
     readFile('element-variables.scss', 'utf8', (err, data) => {
       if (err) {
@@ -20,6 +24,7 @@ const updateColor = async (property, value) => {
       try {
         valDeclaration.value = value
         let ret = stringify(ast)
+        generateScssFile(uuid, ret)
         resolve(ret)
       } catch (err) {
         console.error(err)
@@ -31,8 +36,8 @@ const updateColor = async (property, value) => {
 
 export default async function (req, res, next) {
   // req is the Node.js http request object
-  res.writeHead(200, {"Content-Type": "application/json"})
   try {
+    res.writeHead(200, {"Content-Type": "application/json"})
     let ret = await updateColor(`--color-danger`, '26384b')
     res.end(JSON.stringify(ret))
   } catch(err) {

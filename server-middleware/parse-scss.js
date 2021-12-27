@@ -63,7 +63,6 @@ const splitByMultipleComment = ast => {
       }
       sectionList.push(sectionTitle)
     } else if (item.type === 'declaration') {
-      console.log(item)
       if (item.value[0].type !== 'property') {
         console.error(item.value)
       }
@@ -83,10 +82,6 @@ const main = () => {
       }
       let ast = parse(data)
       const sectionList = splitByMultipleComment(ast)
-      // sectionList.forEach(section => {
-      //   console.log(section)
-      // })
-      // console.log(sectionList)
       resolve(sectionList)
     })
   })

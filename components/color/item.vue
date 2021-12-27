@@ -17,6 +17,7 @@
   </div>
 </template>
 <script>
+import {mapActions }from 'vuex'
 export default {
   props: {
     propName: {
@@ -45,8 +46,14 @@ export default {
   },
   methods: {
     onValueChanged (event) {
+      this.updateTheme({
+        section: 'color',
+        propName: this.propName,
+        propValue: event.currentTarget.value
+      })
       console.log(event.currentTarget.value)
-    }
+    },
+    ...mapActions({updateTheme: 'updateTheme'})
   }
 }
 </script>

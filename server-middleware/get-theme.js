@@ -1,4 +1,4 @@
-import themeProcessor from '../parse-scss'
+import themeProcessor from './parse-scss'
 
 export default async function (req, res, next) {
   // req is the Node.js http request object
