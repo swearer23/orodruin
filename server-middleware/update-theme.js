@@ -1,14 +1,21 @@
 import { parse, stringify } from 'scss-parser'
 import { cloneDeep } from 'lodash'
 import { readFile } from 'fs'
-import { v4 as uuidv4 } from 'uuid';
 import generateScssFile from './generate-scss'
 import parseScssFile from './parse-scss'
+import { DEFAULT_SCSS_TEMPLATE } from './consts'
+import { isScssFileExist, getValidScssFile } from './utils'
+import cookie from 'cookie'
 
-const updateColor = (property, value, sessionId) => {
-  const uuid = sessionId ?? uuidv4()
+const updateColor = (property, value, uuid) => {
+  let filepath
+  if (isScssFileExist(uuid)) {
+    filepath = getValidScssFile(uuid)
+  } else {
+    filepath = DEFAULT_SCSS_TEMPLATE
+  }
   return new Promise((resolve, reject) => {
-    readFile('element-variables.scss', 'utf8', (err, data) => {
+    readFile(filepath, 'utf8', (err, data) => {
       if (err) {
         reject(err)
       }
@@ -24,9 +31,10 @@ const updateColor = (property, value, sessionId) => {
           .find(item => item.type === 'color_hex')
         valDeclaration.value = value
         const newScss = stringify(ast)
+        console.error(uuid)
         generateScssFile(uuid, newScss)
           .then(() => {
-            const ret = parseScssFile(`${uuid}.scss`)
+            const ret = parseScssFile(uuid)
             resolve(ret)
           })
           .catch(err => {
@@ -40,6 +48,13 @@ const updateColor = (property, value, sessionId) => {
 }
 
 export default async function (req, res, next) {
+
+  const cookies = cookie.parse(req.headers.cookie || '')
+  const { uuid } = cookies
+  if (!uuid) {
+    res.writeHead(400)
+    res.end(JSON.stringify({errMsg: 'uuid is required, please enable cookie while using this application'}))
+  }
   let body = []
   req.on('error', (err) => {
     console.error(err);
@@ -50,7 +65,7 @@ export default async function (req, res, next) {
     const {propName, propValue} = JSON.parse(body)
     try {
       res.writeHead(200, {"Content-Type": "application/json"})
-      let ret = await updateColor(propName, propValue)
+      let ret = await updateColor(propName, propValue, uuid)
       res.end(JSON.stringify(ret))
     } catch(err) {
       console.error(err)

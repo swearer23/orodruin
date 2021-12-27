@@ -1,6 +1,6 @@
-let { parse } = require('scss-parser')
-
-let { readFile } = require('fs')
+import { parse } from 'scss-parser'
+import { readFile } from 'fs'
+import { SCSS_FOLDER, DEFAULT_SCSS_TEMPLATE } from './consts'
 
 Array.prototype.last = function () {
   return this[this.length - 1]
@@ -74,19 +74,22 @@ const splitByMultipleComment = ast => {
   return sectionList
 }
 
-const main = (filename) => {
-  const SCSS_FOLDER = './.scss_files/'
-  const DEFAULT_SCSS_TEMPLATE = './element-variables.scss'
-  const path = filename ? `${SCSS_FOLDER}${filename}` : DEFAULT_SCSS_TEMPLATE
+const main = uuid => {
+  const path = uuid ? `${SCSS_FOLDER}/${uuid}.scss` : DEFAULT_SCSS_TEMPLATE
   return new Promise((resolve, reject) => {
-    readFile(path, 'utf8', (err, data) => {
-      if (err) {
-        reject(err)
-      }
-      let ast = parse(data)
-      const sectionList = splitByMultipleComment(ast)
-      resolve(sectionList)
-    })
+    try {
+      readFile(path, 'utf8', (err, data) => {
+        if (err) {
+          reject(err)
+        }
+        let ast = parse(data)
+        const sectionList = splitByMultipleComment(ast)
+        resolve(sectionList)
+      })
+    } catch (err) {
+      console.log(err)
+      reject(err)
+    }
   })
 }
 

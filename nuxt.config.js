@@ -1,3 +1,5 @@
+import { resolve } from 'path'
+
 module.exports = {
   ssr: true,
   plugins: [
@@ -14,6 +16,10 @@ module.exports = {
   },
   serverMiddleware: [
     {
+      path: "/api/*",
+      handler: '~/server-middleware/logger.js'
+    },
+    {
       path: "/api/get-theme",
       handler: '~/server-middleware/get-theme.js'
     },
@@ -21,9 +27,5 @@ module.exports = {
       path: "/api/update-theme",
       handler: '~/server-middleware/update-theme.js'
     },
-    {
-      path: "/api/logger",
-      handler: '~/server-middleware/logger.js'
-    }
   ]
 }

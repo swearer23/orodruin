@@ -1,16 +1,20 @@
 import themeProcessor from './parse-scss'
+import { parse, serialize } from 'cookie'
+import { v4 as uuidv4 } from 'uuid'
+import { isScssFileExist } from './utils'
 
 export default async function (req, res, next) {
+  const cookies = parse(req.headers.cookie || '')
+  const { uuid = uuidv4() } = cookies
   // req is the Node.js http request object
-  res.writeHead(200, {"Content-Type": "application/json"})
   try {
-    const ret = await(themeProcessor())
+    const ret = await(themeProcessor(isScssFileExist(uuid) ? uuid : undefined))
+    res.setHeader('Set-Cookie', serialize('uuid', uuid, { httpOnly: true }))
+    res.writeHead(200, {"Content-Type": "application/json"})
     res.end(JSON.stringify(ret))
   } catch(err) {
     res.writeHead(500)
-    res.end({
-      errMsg: err
-    })
+    res.end(JSON.stringify({errMsg: err.message}))
   }
 
   // res is the Node.js http response object
@@ -18,5 +22,4 @@ export default async function (req, res, next) {
   // next is a function to call to invoke the next middleware
   // Don't forget to call next at the end if your middleware is not an endpoint!
   // next()
-  res.end('theme')
 }
