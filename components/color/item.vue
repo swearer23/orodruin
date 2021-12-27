@@ -49,7 +49,7 @@ export default {
       this.updateTheme({
         section: 'color',
         propName: this.propName,
-        propValue: event.currentTarget.value
+        propValue: event.currentTarget.value.replace('#', '')
       })
       console.log(event.currentTarget.value)
     },

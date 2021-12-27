@@ -74,9 +74,12 @@ const splitByMultipleComment = ast => {
   return sectionList
 }
 
-const main = () => {
+const main = (filename) => {
+  const SCSS_FOLDER = './.scss_files/'
+  const DEFAULT_SCSS_TEMPLATE = './element-variables.scss'
+  const path = filename ? `${SCSS_FOLDER}${filename}` : DEFAULT_SCSS_TEMPLATE
   return new Promise((resolve, reject) => {
-    readFile('element-variables.scss', 'utf8', (err, data) => {
+    readFile(path, 'utf8', (err, data) => {
       if (err) {
         reject(err)
       }
