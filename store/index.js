@@ -26,6 +26,13 @@ export const actions = {
 
 export const mutations = {
   onThemeUpdated (state, theme) {
+    document.querySelector('#chalk-style')?.remove()
+    const styleDomNode = document.createElement('link')
+    styleDomNode.setAttribute('rel', 'stylesheet');
+    styleDomNode.setAttribute('type', 'text/css');
+    styleDomNode.setAttribute('href', 'http://localhost:3000/.css_files/36b5bf66-aa5a-45a5-b0a7-2be1d9751345/index.css?'+new Date())
+    styleDomNode.id = 'chalk-style'
+    document.querySelector('head').appendChild(styleDomNode)
     state.theme = theme
   }
 }

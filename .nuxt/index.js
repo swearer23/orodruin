@@ -81,7 +81,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"meta":[],"link":[],"style":[],"script":[]},
+    head: {"link":[{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Ftheme-chalk\u002Findex.css"}],"meta":[],"style":[],"script":[]},
 
     store,
     router,

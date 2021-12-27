@@ -1,13 +1,17 @@
-import { resolve } from 'path'
 
 module.exports = {
   ssr: true,
   plugins: [
     "~/plugins/element-ui.js",
   ],
-  css: [
-    "element-ui/lib/theme-chalk/index.css",
-  ],
+  head: {
+    link: [
+      {rel: 'stylesheet', type: 'text/css', href: '/theme-chalk/index.css'},
+    ]
+  },
+  // css: [
+  //   "element-ui/lib/theme-chalk/index.css",
+  // ],
   loaders: {
     less: {}
   },

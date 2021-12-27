@@ -1,8 +1,8 @@
 .DS_Store
 node_modules
 /dist
-.scss_files
-.css_files
+static/.scss_files
+static/.css_files
 
 
 # local env files
