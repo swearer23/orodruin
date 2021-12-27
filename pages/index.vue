@@ -44,7 +44,8 @@ export default {
   async asyncData() {
   },
   created() {
-    this.getTheme()
+    if (process.client)
+      this.getTheme()
   },
   mounted () {
   },

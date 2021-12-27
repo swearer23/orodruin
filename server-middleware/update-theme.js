@@ -31,13 +31,13 @@ const updateColor = (property, value, uuid) => {
           .find(item => item.type === 'color_hex')
         valDeclaration.value = value
         const newScss = stringify(ast)
-        console.error(uuid)
         generateScssFile(uuid, newScss)
           .then(() => {
             const ret = parseScssFile(uuid)
             resolve(ret)
           })
           .catch(err => {
+            console.error(err)
             reject(err.message)
           })
       } catch (err) {

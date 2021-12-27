@@ -2,6 +2,7 @@
 node_modules
 /dist
 .scss_files
+.css_files
 
 
 # local env files

@@ -6,7 +6,7 @@ export const isScssFileExist = uuid => {
   try{
     accessSync(`${SCSS_FOLDER}/${uuid}.scss`, fs.constants.F_OK)
   }catch(e){
-    console.error(e)
+    // console.error(e)
     flag = false;
   }
   return flag;
