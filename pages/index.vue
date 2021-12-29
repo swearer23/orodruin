@@ -12,6 +12,7 @@
         class="content-main"
       >
         <Color :colors="colors" />
+        <Typography :typography="typography" />
         <section>
           <h2>按钮</h2>
           <el-button type="danger">danger</el-button>
@@ -25,11 +26,13 @@
 </template>
 <script>
 import Color from '@/components/color/section'
+import Typography from '@/components/typography/section'
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'editor',
   components: {
-    Color
+    Color,
+    Typography
   },
   data: () => {
     return {
@@ -39,10 +42,11 @@ export default {
   computed: mapState({
     theme: state => state.theme,
     isLoading: state => state.isLoading,
-    colors: state => {
-      return state.theme.find(section => {
-        return section.title === "Color"
-      }).declarations
+    colors: function () {
+      return this.findDeclarationByTitle('Color')
+    },
+    typography: function () {
+      return this.findDeclarationByTitle('Typography')
     }
   }),
   async asyncData() {
@@ -60,6 +64,11 @@ export default {
     }),
     reset () {
       this.deleteConfig()
+    },
+    findDeclarationByTitle (title) {
+      return this.theme.find(section => {
+        return section.title === title
+      }).declarations
     }
   }
 }

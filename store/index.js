@@ -52,7 +52,6 @@ export const actions = {
 
 export const mutations = {
   onThemeUpdated (state, {theme, cssPath}) {
-    console.log(cssPath)
     updateCssDomNode(cssPath)
     state.theme = theme
     state.isLoading = false
@@ -62,5 +61,8 @@ export const mutations = {
   },
   onFinishedReset (state) {
     state.isLoading = false
+  },
+  setGlobalStyleVariable (state, payload) {
+    state.style = Object.assign(state.style, payload)
   }
 }
