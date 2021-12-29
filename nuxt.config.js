@@ -27,5 +27,9 @@ module.exports = {
       path: "/api/update-theme",
       handler: '~/server-middleware/update-theme.js'
     },
+    {
+      path: "/api/reset",
+      handler: '~/server-middleware/reset.js'
+    }
   ]
 }

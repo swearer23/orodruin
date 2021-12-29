@@ -20,5 +20,8 @@
   "devDependencies": {
     "element-theme": "^2.0.1",
     "element-theme-chalk": "^2.15.6"
-  }
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }

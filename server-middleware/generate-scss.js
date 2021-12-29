@@ -1,6 +1,6 @@
 import { writeFile } from 'fs'
 import { SCSS_FOLDER, CSS_FOLDER } from './consts'
-import et from 'element-theme'
+import et from 'element-themex'
 
 const main = (uuid, content) => {
   return new Promise((resolve, reject) => {

@@ -4,7 +4,7 @@ import { readFile } from 'fs'
 import generateScssFile from './generate-scss'
 import parseScssFile from './parse-scss'
 import { DEFAULT_SCSS_TEMPLATE } from './consts'
-import { isScssFileExist, getValidScssFile } from './utils'
+import { isScssFileExist, getValidScssFile, getRelativeCssFilePath} from './utils'
 import cookie from 'cookie'
 
 const updateColor = (property, value, uuid) => {
@@ -65,7 +65,9 @@ export default async function (req, res, next) {
     const {propName, propValue} = JSON.parse(body)
     try {
       res.writeHead(200, {"Content-Type": "application/json"})
-      let ret = await updateColor(propName, propValue, uuid)
+      let ret = {}
+      ret.theme = await updateColor(propName, propValue, uuid)
+      ret.cssPath = getRelativeCssFilePath(uuid)
       res.end(JSON.stringify(ret))
     } catch(err) {
       console.error(err)

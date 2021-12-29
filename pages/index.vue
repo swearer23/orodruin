@@ -18,7 +18,7 @@
         </section>
       </el-main>
       <el-aside class="content-aside">
-        颜色 {{runtime}}
+        <el-button type='info' icon='el-icon-delete' v-on:click="reset">重置</el-button>
       </el-aside>
     </el-container>
   </el-container>
@@ -54,7 +54,13 @@ export default {
   mounted () {
   },
   methods: {
-    ...mapActions({getTheme: 'get'})
+    ...mapActions({
+      getTheme: 'get',
+      deleteConfig: 'deleteConfig'
+    }),
+    reset () {
+      this.deleteConfig()
+    }
   }
 }
 </script>
