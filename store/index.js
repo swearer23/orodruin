@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 export const state = () => ({
-  theme: []
+  theme: [],
+  isLoading: false
 })
 
 export const actions = {
@@ -16,6 +17,7 @@ export const actions = {
 
   async updateTheme (context, payload) {
     try {
+      context.commit('onStartLoading')
       const theme = await axios.post('http://localhost:3000/api/update-theme', payload)
       context.commit('onThemeUpdated', theme.data)
     } catch (err) {
@@ -34,5 +36,9 @@ export const mutations = {
     styleDomNode.id = 'chalk-style'
     document.querySelector('head').appendChild(styleDomNode)
     state.theme = theme
+    state.isLoading = false
+  },
+  onStartLoading (state) {
+    state.isLoading = true
   }
 }

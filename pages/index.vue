@@ -1,5 +1,8 @@
 <template>
-  <el-container class="main-container">
+  <el-container
+    class="main-container"
+    v-loading="isLoading"
+  >
     <el-header>
       <h4>ElementUI设计语言生成器 Orodruin ElementUI Theme Editor</h4>
     </el-header>
@@ -35,6 +38,7 @@ export default {
   },
   computed: mapState({
     theme: state => state.theme,
+    isLoading: state => state.isLoading,
     colors: state => {
       return state.theme.find(section => {
         return section.title === "Color"
