@@ -2,23 +2,28 @@
   <section>
     <h2>字体</h2>
     <el-row :gutter="40">
-      <el-col :span="8" class="color-palette">
+      <el-col :span="6" class="color-palette">
         <div v-for="item in fontsize" :key="item.propName" :style="item.style">
           {{item.displayText}}
         </div>
       </el-col>
       <el-col :span="8" class="color-palette">
-      <span :style="fontsize[1].style">Example body text</span>
-      <p :style="paragraphStyle" class="primary-text-color">
-        With MySpace becoming more popular every day, there is the constant need to be different. There are millions of users. If MySpace layouts are chosen well, then you can enhance your profile a great deal.
-      </p>
+        <span :style="fontsize[1].style">Example primary text</span>
+        <p :style="primaryParagraphStyle">
+          With MySpace becoming more popular every day, there is the constant need to be different. There are millions of users. If MySpace layouts are chosen well, then you can enhance your profile a great deal.
+        </p>
       </el-col>
       <el-col :span="8" class="color-palette">
+        <span :style="fontsize[1].style">Example secondary text</span>
+        <p :style="secondaryParagraphStyle">
+          With MySpace becoming more popular every day, there is the constant need to be different. There are millions of users. If MySpace layouts are chosen well, then you can enhance your profile a great deal.
+        </p>
       </el-col>
     </el-row>
   </section>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   props: {
     typography: {
@@ -29,7 +34,7 @@ export default {
   data: () => {
     return {}
   },
-  computed: {
+  computed: ({
     typographyDict: function () {
       let ret = {}
       this.typography.forEach(item => {
@@ -39,16 +44,11 @@ export default {
           value: item.propValue.trim().replace('!default', '')
         }
       })
+      console.log(ret)
       return ret
     },
-    paragraphStyle: function () {
-      return {
-        fontSize: this.typographyDict['size-base'].value,
-        padding: '20px 0',
-        fontWeight: this.typographyDict['weight-primary'].value,
-        lineHeight: this.typographyDict['line-height-primary'].value
-      }
-    },
+    primaryParagraphStyle: function () {return this.paragraphStyle('text-primary', 'weight-primary')},
+    secondaryParagraphStyle: function () {return this.paragraphStyle('text-secondary', 'weight-secondary')},
     fontsize: function () {
       return this.typography.filter(item => {
         return item.propName.includes('font-size')
@@ -61,6 +61,20 @@ export default {
           }
         })
       })
+    },
+    ...mapGetters([
+      'getColorByPropName'
+    ])
+  }),
+  methods: {
+    paragraphStyle: function (textStyle, fontWeight) {
+      return {
+        color: this.getColorByPropName(textStyle).replace('!default', ''),
+        fontSize: this.typographyDict['size-base'].value,
+        padding: '20px 0',
+        fontWeight: this.typographyDict[fontWeight].value,
+        lineHeight: this.typographyDict['line-height-primary'].value
+      }
     }
   }
 }

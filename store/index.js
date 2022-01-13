@@ -1,3 +1,4 @@
+export * as getters from './getters'
 import axios from 'axios'
 
 const updateCssDomNode = cssPath => {
@@ -12,8 +13,17 @@ const updateCssDomNode = cssPath => {
   }
 }
 
+const transformStyleListToTree = data => {
+  const ret = {}
+  data.forEach(section => {
+    ret[section.title.toLowerCase()] = section.declarations
+  })
+  return ret
+}
+
 export const state = () => ({
   theme: [],
+  style: {},
   isLoading: false
 })
 
@@ -54,6 +64,7 @@ export const mutations = {
   onThemeUpdated (state, {theme, cssPath}) {
     updateCssDomNode(cssPath)
     state.theme = theme
+    state.style = Object.assign({}, transformStyleListToTree(theme))
     state.isLoading = false
   },
   onStartLoading (state) {
@@ -61,8 +72,5 @@ export const mutations = {
   },
   onFinishedReset (state) {
     state.isLoading = false
-  },
-  setGlobalStyleVariable (state, payload) {
-    state.style = Object.assign(state.style, payload)
   }
 }

@@ -13,31 +13,18 @@
 </template>
 <script>
 import ColorItem from './item.vue'
+import { mapGetters } from 'vuex'
 export default {
   name: 'ColorDisplay',
-  props: {
-    colors: {
-      type: Array,
-      default: () => []
-    }
-  },
   components: {
     ColorItem
   },
-  computed: {
-    filteredColors () {
-      const ret = []
-      this.colors.forEach(color => {
-        if (!color.propName.includes('light'))
-          ret.push(Object.assign(color, {light: []}))
-        else
-          ret.find(item => {
-            return color.propName.startsWith(item.propName)
-          })?.light.push(color)
-      })
-      return ret
-    }
-  }
+  computed: ({
+    ...mapGetters([
+      'colors',
+      'filteredColors'
+    ])
+  })
 }
 </script>
 <style lang='less' scoped>
