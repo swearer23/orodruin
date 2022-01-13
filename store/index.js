@@ -28,6 +28,10 @@ export const state = () => ({
 })
 
 export const actions = {
+  configSection ({ commit }, sectionName) {
+    commit('onStartConfigSection', sectionName)
+  },
+
   async get ({ commit }) {
     try {
       const {data: {theme, cssPath}} = await axios.get('http://localhost:3000/api/get-theme')
@@ -72,5 +76,8 @@ export const mutations = {
   },
   onFinishedReset (state) {
     state.isLoading = false
+  },
+  onStartConfigSection (state, sectionName) {
+    state.configSection = sectionName
   }
 }

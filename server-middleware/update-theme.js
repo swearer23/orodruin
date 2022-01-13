@@ -6,8 +6,9 @@ import parseScssFile from './parse-scss'
 import { DEFAULT_SCSS_TEMPLATE } from './consts'
 import { isScssFileExist, getValidScssFile, getRelativeCssFilePath} from './utils'
 import cookie from 'cookie'
+import updater from './updaters'
 
-const updateColor = (property, value, uuid) => {
+const update = (section, property, value, uuid) => {
   let filepath
   if (isScssFileExist(uuid)) {
     filepath = getValidScssFile(uuid)
@@ -26,10 +27,10 @@ const updateColor = (property, value, uuid) => {
             return false
           }
           return item.value[0].value[0].value === property
-        }).value
-          .find(item => item.type === 'value').value
-          .find(item => item.type === 'color_hex')
-        valDeclaration.value = value
+        }).value.find(item => {
+          return item.type === 'value'
+        })
+        updater[section](valDeclaration, value)
         const newScss = stringify(ast)
         generateScssFile(uuid, newScss)
           .then(() => {
@@ -41,6 +42,7 @@ const updateColor = (property, value, uuid) => {
             reject(err.message)
           })
       } catch (err) {
+        console.error(err)
         reject(err.message)
       }
     })
@@ -62,11 +64,11 @@ export default async function (req, res, next) {
     body.push(chunk);
   }).on('end', async () => {
     body = Buffer.concat(body).toString();
-    const {propName, propValue} = JSON.parse(body)
+    const {section, propName, propValue} = JSON.parse(body)
     try {
       res.writeHead(200, {"Content-Type": "application/json"})
       let ret = {}
-      ret.theme = await updateColor(propName, propValue, uuid)
+      ret.theme = await update(section, propName, propValue, uuid)
       ret.cssPath = getRelativeCssFilePath(uuid)
       res.end(JSON.stringify(ret))
     } catch(err) {

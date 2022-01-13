@@ -16,7 +16,6 @@ export const filteredColors = state => {
 export const getColorByPropName = state => {
   return propName => {
     return state.style.color.find(color => {
-      console.log(color.propName, propName)
       return color.propName === `--color-${propName}`
     })?.propValue 
   }
