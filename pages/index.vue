@@ -13,10 +13,7 @@
       >
         <Color :colors="colors" />
         <Typography :typography="typography" />
-        <section>
-          <h2>按钮</h2>
-          <el-button type="danger">danger</el-button>
-        </section>
+        <Button />
       </el-main>
       <el-aside class="content-aside">
         <el-button type='info' icon='el-icon-delete' v-on:click="reset">重置</el-button>
@@ -28,12 +25,14 @@
 <script>
 import Color from '@/components/color/section'
 import Typography from '@/components/typography/section'
+import Button from '@/components/button'
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'editor',
   components: {
     Color,
-    Typography
+    Typography,
+    Button
   },
   data: () => {
     return {
@@ -67,9 +66,10 @@ export default {
       this.deleteConfig()
     },
     findDeclarationByTitle (title) {
-      return this.theme.find(section => {
+      let ret =this.theme.find(section => {
         return section.title === title
-      }).declarations
+      })
+      return ret.declarations
     }
   }
 }
