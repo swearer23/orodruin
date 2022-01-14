@@ -13,5 +13,5 @@ export default {
     {label: '原型圆角', value: '$--border-radius-circle'},
     {label: '无圆角', value: '$--border-radius-zero'}
   ],
-  padding: INPUT_OPTION_TYPE.TEXT
+  padding: () => [...Array(100).keys()].map(i => `${i+1}px`),
 }

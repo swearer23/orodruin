@@ -1,5 +1,6 @@
 import SelectOption from './SelectOption'
 import valueOptionsConfig, {INPUT_OPTION_TYPE} from '../valueOptionsConfig'
+import {isFunction} from 'lodash'
 
 export default {
   props: {
@@ -19,7 +20,12 @@ export default {
   components: {SelectOption},
   computed: {
     valueOptions () {
-      return valueOptionsConfig[this.valueOptionType]
+      const valueOptions = valueOptionsConfig[this.valueOptionType]
+      if (isFunction(valueOptions)) {
+        return valueOptions()
+      } else {
+        return valueOptionsConfig[this.valueOptionType]
+      }
     }
   },
   render (h) {
