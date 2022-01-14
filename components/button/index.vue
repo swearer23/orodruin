@@ -25,12 +25,16 @@
 const BUTTON_TYPES = ['default', 'primary', 'success', 'warning', 'danger', 'info']
 const BUTTON_STYLES = ['default', 'plain', 'round', 'circle']
 const BUTTON_SIZES = ['default', 'medium', 'small', 'mini']
+
 export default {
   data: () => {
     return {
       BUTTON_TYPES,
       BUTTON_STYLES,
-      BUTTON_SIZES
+      BUTTON_SIZES,
+      configKeyOptions: [{
+        label: '颜色'
+      }]
     }
   }
 }
