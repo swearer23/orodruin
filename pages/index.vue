@@ -24,6 +24,7 @@
         <Color :colors="colors" />
         <Typography :typography="typography" />
         <Button />
+        <Radio />
       </el-main>
     </el-container>
   </el-container>
@@ -32,13 +33,15 @@
 import Color from '@/components/color/section'
 import Typography from '@/components/typography/section'
 import Button from '@/components/button'
+import Radio from '@/components/radio'
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'editor',
   components: {
     Color,
     Typography,
-    Button
+    Button,
+    Radio
   },
   data: () => {
     return {
