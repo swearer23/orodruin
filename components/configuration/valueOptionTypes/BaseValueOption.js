@@ -1,4 +1,5 @@
 import SelectOption from './SelectOption'
+import ColorInput from './ColorInput'
 import valueOptionsConfig, {INPUT_OPTION_TYPE} from '../valueOptionsConfig'
 import {isFunction} from 'lodash'
 
@@ -17,7 +18,7 @@ export default {
       require: true
     }
   },
-  components: {SelectOption},
+  components: {SelectOption, ColorInput},
   computed: {
     valueOptions () {
       const valueOptions = valueOptionsConfig[this.valueOptionType]
@@ -32,6 +33,9 @@ export default {
     let component = 'p'
     if (Array.isArray(this.valueOptions)) {
       component = SelectOption
+    }
+    if (this.valueOptions === INPUT_OPTION_TYPE.COLOR) {
+      component = ColorInput
     }
     return h(component, {
       props: {

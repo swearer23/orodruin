@@ -1,30 +1,32 @@
 <template>
   <el-form ref="form" label-width="80px">
-    <el-select
-      v-model="selectedKeyOption"
-      placeholder="请选择编辑项"
-      @change="onKeyChanged"
-      style="width: 300px"
-    >
-      <el-option-group
-        v-for="group in keyOptions"
-        :key="group.label"
-        :label="group.label"
+    <el-row type="flex" align="middle">
+      <el-select
+        v-model="selectedKeyOption"
+        placeholder="请选择编辑项"
+        @change="onKeyChanged"
+        style="width: 300px"
       >
-        <el-option
-          v-for="item in group.options"
-          :key="item.key"
-          :label="item.key"
-          :value="item.key"
+        <el-option-group
+          v-for="group in keyOptions"
+          :key="group.label"
+          :label="group.label"
         >
-        </el-option>
-      </el-option-group>
-    </el-select>
-    <BaseValueOption
-      :valueOptionType="valueOptionType"
-      :selected-key-option="selectedKeyOption"
-      :section="section"
-    />
+          <el-option
+            v-for="item in group.options"
+            :key="item.key"
+            :label="item.key"
+            :value="item.key"
+          >
+          </el-option>
+        </el-option-group>
+      </el-select>
+      <BaseValueOption
+        :valueOptionType="valueOptionType"
+        :selected-key-option="selectedKeyOption"
+        :section="section"
+      />
+    </el-row>
   </el-form>
 </template>
 <script>
