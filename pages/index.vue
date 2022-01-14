@@ -3,8 +3,18 @@
     class="main-container"
     v-loading="isLoading"
   >
-    <el-header>
-      <h4>ElementUI设计语言生成器 Orodruin ElementUI Theme Editor</h4>
+    <el-header style="height: auto">
+      <el-row align="middle" type="flex">
+        <el-col :span="20">
+          <h4 style="width: auto;">ElementUI设计语言生成器 Orodruin ElementUI Theme Editor</h4>
+        </el-col>
+        <el-col :span="4">
+          <el-button-group style="float: right; ">
+            <el-button type='info' icon='el-icon-delete' v-on:click="reset">重置</el-button>
+            <el-button type='primary' icon='el-icon-download'>下载</el-button>
+          </el-button-group>
+        </el-col>
+      </el-row>
     </el-header>
     <el-container>
       <el-main
@@ -15,10 +25,6 @@
         <Typography :typography="typography" />
         <Button />
       </el-main>
-      <el-aside class="content-aside">
-        <el-button type='info' icon='el-icon-delete' v-on:click="reset">重置</el-button>
-        <el-button type='primary' icon='el-icon-download'>下载</el-button>
-      </el-aside>
     </el-container>
   </el-container>
 </template>

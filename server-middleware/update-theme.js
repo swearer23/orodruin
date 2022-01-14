@@ -30,7 +30,11 @@ const update = (section, property, value, uuid) => {
         }).value.find(item => {
           return item.type === 'value'
         })
-        updater[section](valDeclaration, value)
+        if (updater[section]) {
+          updater[section](valDeclaration, value)
+        } else {
+          updater.defaultUpdater(valDeclaration, value)
+        }
         const newScss = stringify(ast)
         generateScssFile(uuid, newScss)
           .then(() => {

@@ -19,22 +19,30 @@
         :icon="style == 'circle' ? 'el-icon-edit' : ''"
       >{{style == 'circle' ? '' : type}}</el-button>
     </el-row>
+    <el-row type="flex" align="bottom" style="margin-bottom: 20px">
+      <el-button
+        v-for="size in BUTTON_SIZES"
+        :key="size"
+        :size="size"
+      >{{size}}</el-button>
+    </el-row>
+    <Configuration section="button" />
   </section>
 </template>
 <script>
+import Configuration from '../configuration'
+
 const BUTTON_TYPES = ['default', 'primary', 'success', 'warning', 'danger', 'info']
 const BUTTON_STYLES = ['default', 'plain', 'round', 'circle']
 const BUTTON_SIZES = ['default', 'medium', 'small', 'mini']
 
 export default {
+  components: {Configuration},
   data: () => {
     return {
       BUTTON_TYPES,
       BUTTON_STYLES,
       BUTTON_SIZES,
-      configKeyOptions: [{
-        label: '颜色'
-      }]
     }
   }
 }

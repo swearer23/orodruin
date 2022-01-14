@@ -4,6 +4,7 @@
       v-model="selectedKeyOption"
       placeholder="请选择编辑项"
       @change="onKeyChanged"
+      style="width: 300px"
     >
       <el-option-group
         v-for="group in keyOptions"
@@ -19,29 +20,20 @@
         </el-option>
       </el-option-group>
     </el-select>
-    <el-select
-      v-model="selectedValueOption"
-      placeholder="请选择设定值"
-      style="margin-left: 20px"
-      @change="onValueChanged"
-    >
-      <el-option
-        v-for="item in valueOptions"
-        :key="item"
-        :label="item"
-        :value="item">
-      </el-option>
-    </el-select>
+    <BaseValueOption
+      :valueOptionType="valueOptionType"
+      :selected-key-option="selectedKeyOption"
+      :section="section"
+    />
   </el-form>
 </template>
 <script>
-import { mapActions } from 'vuex'
 import config from '../configuration/config'
 import {groupBy} from 'lodash'
-import valueOptions from './valueOptionsConfig'
-import valueOptionsConfig from './valueOptionsConfig'
+import BaseValueOption from './valueOptionTypes/BaseValueOption'
 
 export default {
+  components: {BaseValueOption},
   props: {
     section: {
       type: String,
@@ -52,9 +44,8 @@ export default {
     return {
       localConfig: {},
       keyOptions: [],
-      valueOptions: [],
       selectedKeyOption: null,
-      selectedValueOption: null
+      valueOptionType: null
     }
   },
   mounted() {
@@ -65,23 +56,19 @@ export default {
         options: value
       }
     })
-    console.log(this.keyOptions)
+    console.log(this.keyOptions, 'configuration key options')
   },
   methods: {
     onKeyChanged () {
-      this.selectedValueOption = null
-      this.valueOptions = valueOptionsConfig[this.localConfig.find(item => {
+      const valueOptionType = this.localConfig.find(item => {
         return item.key === this.selectedKeyOption
-      }).type] || []
-    },
-    onValueChanged () {
-      this.updateTheme({
-        section: this.section,
-        propName: `--${this.selectedKeyOption}`,
-        propValue: this.selectedValueOption
-      })
-    },
-    ...mapActions({updateTheme: 'updateTheme'})
+      }).type
+      if (valueOptionType) {
+        this.valueOptionType = valueOptionType
+      } else {
+        throw new Error(`${valueOptionType} is not supported by unified style configuration panel`)
+      }
+    }
   }
 }
 </script>
