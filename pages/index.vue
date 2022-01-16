@@ -26,6 +26,7 @@
         <Button />
         <Radio />
         <checkbox />
+        <Input />
       </el-main>
     </el-container>
   </el-container>
@@ -36,6 +37,8 @@ import Typography from '@/components/typography/section'
 import Button from '@/components/button'
 import Radio from '@/components/radio'
 import Checkbox from '@/components/checkbox'
+import Input from '@/components/input'
+
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'editor',
@@ -44,7 +47,8 @@ export default {
     Typography,
     Button,
     Radio,
-    Checkbox
+    Checkbox,
+    Input
   },
   data: () => {
     return {
