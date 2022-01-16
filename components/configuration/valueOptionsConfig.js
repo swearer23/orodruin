@@ -13,6 +13,7 @@ export default {
     {label: '原型圆角', value: '$--border-radius-circle'},
     {label: '无圆角', value: '$--border-radius-zero'}
   ],
-  padding: () => [...Array(100).keys()].map(i => `${i+1}px`),
+  padding: INPUT_OPTION_TYPE.TEXT,
+  height: () => [...Array(200).keys()].map(i => `${i+1}px`),
   color: INPUT_OPTION_TYPE.COLOR
 }

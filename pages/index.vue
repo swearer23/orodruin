@@ -5,10 +5,10 @@
   >
     <el-header style="height: auto">
       <el-row align="middle" type="flex">
-        <el-col :span="20">
+        <el-col :span="16">
           <h4 style="width: auto;">ElementUI设计语言生成器 Orodruin ElementUI Theme Editor</h4>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="8">
           <el-button-group style="float: right; ">
             <el-button type='info' icon='el-icon-delete' v-on:click="reset">重置</el-button>
             <el-button type='primary' icon='el-icon-download'>下载</el-button>
@@ -25,6 +25,7 @@
         <Typography :typography="typography" />
         <Button />
         <Radio />
+        <checkbox />
       </el-main>
     </el-container>
   </el-container>
@@ -34,6 +35,7 @@ import Color from '@/components/color/section'
 import Typography from '@/components/typography/section'
 import Button from '@/components/button'
 import Radio from '@/components/radio'
+import Checkbox from '@/components/checkbox'
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'editor',
@@ -41,7 +43,8 @@ export default {
     Color,
     Typography,
     Button,
-    Radio
+    Radio,
+    Checkbox
   },
   data: () => {
     return {
