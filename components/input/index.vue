@@ -8,6 +8,13 @@
     >
       <el-input v-model="input" placeholder="请输入内容" style="width: 300px"></el-input>
     </el-row>
+    <el-row
+      type="flex"
+      span='6'
+      style="margin-bottom: 20px;"
+    >
+      <el-input-number v-model="inputNumber" placeholder="请输入内容" style="width: 300px"></el-input-number>
+    </el-row>
     <Configuration section="input" />
   </section>
 </template>
@@ -18,7 +25,8 @@ export default {
   components: {Configuration},
   data: () => {
     return {
-      input: ''
+      input: '',
+      inputNumber: 2
     }
   }
 }

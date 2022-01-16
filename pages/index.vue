@@ -27,6 +27,7 @@
         <Radio />
         <checkbox />
         <Input />
+        <Select />
       </el-main>
     </el-container>
   </el-container>
@@ -38,6 +39,7 @@ import Button from '@/components/button'
 import Radio from '@/components/radio'
 import Checkbox from '@/components/checkbox'
 import Input from '@/components/input'
+import Select from '@/components/select'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -48,7 +50,8 @@ export default {
     Button,
     Radio,
     Checkbox,
-    Input
+    Input,
+    Select
   },
   data: () => {
     return {
