@@ -9,24 +9,18 @@ export default {
     selectedKeyOption: {
       type: String,
       require: true
-    }
-  },
-  data: () => {
-    return {
-      selectedValueOption: null
-    }
-  },
-  watch: {
-    selectedKeyOption (newValue) {
-      this.selectedValueOption = null
+    },
+    selectedValueOption: {
+      type: String,
+      default: ''
     }
   },
   methods: {
-    onValueChanged () {
+    onValueChanged (value) {
       this.updateTheme({
         section: this.section,
         propName: `--${this.selectedKeyOption}`,
-        propValue: this.selectedValueOption
+        propValue: value
       })
     },
     ...mapActions({updateTheme: 'updateTheme'})

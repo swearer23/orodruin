@@ -1,6 +1,6 @@
 <template>
   <el-select
-    v-model="selectedValueOption"
+    :value="selectedValueOption"
     placeholder="请选择设定值"
     style="margin-left: 20px; width: 300px"
     @change="onValueChanged"

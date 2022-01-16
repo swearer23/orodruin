@@ -20,3 +20,22 @@ export const getColorByPropName = state => {
     })?.propValue 
   }
 }
+
+export const getPropValueBySectionAndPropName = state => {
+  return (section, propName) => {
+    let propValue = state.style[section].find(item => {
+      return item.propName === `--${propName}`
+    })?.propValue
+    if (propValue) {
+      if (propValue.trim().startsWith('$')) {
+        return Object.values(state.style).flat().find(item => {
+          return item.propName === propValue.replace('$', '').replace('!default', '').trim()
+        })?.propValue.replace('!default', '').trim()
+      } else {
+        return propValue.replace('!default', '').trim()
+      }
+    } else {
+      return undefined
+    }
+  }
+}

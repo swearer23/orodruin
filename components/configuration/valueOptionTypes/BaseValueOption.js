@@ -3,6 +3,7 @@ import ColorInput from './ColorInput'
 import TextInput from './TextInput'
 import valueOptionsConfig, {INPUT_OPTION_TYPE} from '../valueOptionsConfig'
 import {isFunction} from 'lodash'
+import { mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -28,7 +29,13 @@ export default {
       } else {
         return valueOptionsConfig[this.valueOptionType]
       }
+    },
+    valueOptionValue () {
+      return this.getPropValueBySectionAndPropName()(this.section, this.selectedKeyOption)
     }
+  },
+  methods: {
+    ...mapGetters(['getPropValueBySectionAndPropName'])
   },
   render (h) {
     let component = 'p'
@@ -45,7 +52,8 @@ export default {
       props: {
         section: this.section,
         selectedKeyOption: this.selectedKeyOption,
-        valueOptions: this.valueOptions
+        valueOptions: this.valueOptions,
+        selectedValueOption: this.valueOptionValue
       }
     })
   }
