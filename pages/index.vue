@@ -28,6 +28,7 @@
         <checkbox />
         <Input />
         <Select />
+        <Cascader />
       </el-main>
     </el-container>
   </el-container>
@@ -40,6 +41,7 @@ import Radio from '@/components/radio'
 import Checkbox from '@/components/checkbox'
 import Input from '@/components/input'
 import Select from '@/components/select'
+import Cascader from '@/components/cascader'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -51,7 +53,8 @@ export default {
     Radio,
     Checkbox,
     Input,
-    Select
+    Select,
+    Cascader
   },
   data: () => {
     return {
