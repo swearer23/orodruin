@@ -29,6 +29,7 @@
         <Input />
         <Select />
         <Cascader />
+        <ElSwitch />
       </el-main>
     </el-container>
   </el-container>
@@ -42,6 +43,7 @@ import Checkbox from '@/components/checkbox'
 import Input from '@/components/input'
 import Select from '@/components/select'
 import Cascader from '@/components/cascader'
+import ElSwitch from '@/components/switch'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -54,7 +56,8 @@ export default {
     Checkbox,
     Input,
     Select,
-    Cascader
+    Cascader,
+    ElSwitch
   },
   data: () => {
     return {
