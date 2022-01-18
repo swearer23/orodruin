@@ -30,6 +30,7 @@
         <Select />
         <Cascader />
         <ElSwitch />
+        <Slider />
       </el-main>
     </el-container>
   </el-container>
@@ -44,6 +45,7 @@ import Input from '@/components/input'
 import Select from '@/components/select'
 import Cascader from '@/components/cascader'
 import ElSwitch from '@/components/switch'
+import Slider from '@/components/slider'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -57,7 +59,8 @@ export default {
     Input,
     Select,
     Cascader,
-    ElSwitch
+    ElSwitch,
+    Slider
   },
   data: () => {
     return {

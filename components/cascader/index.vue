@@ -7,9 +7,10 @@
       style="margin-bottom: 20px;"
     >
       <el-cascader
+        style="width: 300px"
         v-model="value"
         :options="options"
-        @change="handleChange"></el-cascader>
+        ></el-cascader>
     </el-row>
     <Configuration section="cascader" />
   </section>

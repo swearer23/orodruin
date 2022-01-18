@@ -6,7 +6,7 @@
       span='6'
       style="margin-bottom: 20px;"
     >
-      <el-select v-model="value" placeholder="请选择">
+      <el-select v-model="value" placeholder="请选择" style="width: 300px">
         <el-option
           v-for="item in options"
           :key="item.value"
