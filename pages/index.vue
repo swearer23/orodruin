@@ -39,6 +39,7 @@
         <Progress />
         <Tree />
         <Pagination />
+        <Badge />
       </el-main>
     </el-container>
   </el-container>
@@ -62,6 +63,7 @@ import Tag from '@/components/tag'
 import Progress from '@/components/progress'
 import Tree from '@/components/tree'
 import Pagination from '@/components/pagination'
+import Badge from '@/components/badge'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -84,7 +86,8 @@ export default {
     Tag,
     Progress,
     Tree,
-    Pagination
+    Pagination,
+    Badge
   },
   data: () => {
     return {
