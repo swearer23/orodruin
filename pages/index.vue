@@ -45,6 +45,7 @@
         <Message />
         <MessageBox />
         <Notification />
+        <Menu />
       </el-main>
     </el-container>
   </el-container>
@@ -74,6 +75,7 @@ import Loading from '@/components/loading'
 import Message from '@/components/message'
 import MessageBox from '@/components/messageBox'
 import Notification from '@/components/notification'
+import Menu from '@/components/menu'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -102,7 +104,8 @@ export default {
     Loading,
     Message,
     MessageBox,
-    Notification
+    Notification,
+    Menu
   },
   data: () => {
     return {
