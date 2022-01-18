@@ -6,7 +6,7 @@
     v-model="valueCopy"
     @change="onValueChanged"
   >
-    <el-button slot="append" icon="el-icon-upload"></el-button>
+    <el-button slot="append" icon="el-icon-check"></el-button>
   </el-input>
 </template>
 <script>

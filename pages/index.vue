@@ -32,6 +32,7 @@
         <ElSwitch />
         <Slider />
         <DatePicker />
+        <Rate />
       </el-main>
     </el-container>
   </el-container>
@@ -48,6 +49,7 @@ import Cascader from '@/components/cascader'
 import ElSwitch from '@/components/switch'
 import Slider from '@/components/slider'
 import DatePicker from '@/components/datepicker'
+import Rate from '@/components/rate'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -63,7 +65,8 @@ export default {
     Cascader,
     ElSwitch,
     Slider,
-    DatePicker
+    DatePicker,
+    Rate
   },
   data: () => {
     return {

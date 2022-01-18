@@ -15,5 +15,6 @@ export default {
   ],
   padding: INPUT_OPTION_TYPE.TEXT,
   height: () => [...Array(200).keys()].map(i => `${i+1}px`),
-  color: INPUT_OPTION_TYPE.COLOR
+  color: INPUT_OPTION_TYPE.COLOR,
+  margin: INPUT_OPTION_TYPE.TEXT
 }
