@@ -1,32 +1,37 @@
 <template>
   <el-form ref="form" label-width="80px">
-    <el-row type="flex" align="middle">
-      <el-select
-        v-model="selectedKeyOption"
-        placeholder="请选择编辑项"
-        @change="onKeyChanged"
-        style="width: 300px"
-      >
-        <el-option-group
-          v-for="group in keyOptions"
-          :key="group.label"
-          :label="group.label"
+    <template v-if="localConfig">
+      <el-row type="flex" align="middle">
+        <el-select
+          v-model="selectedKeyOption"
+          placeholder="请选择编辑项"
+          @change="onKeyChanged"
+          style="width: 300px"
         >
-          <el-option
-            v-for="item in group.options"
-            :key="item.key"
-            :label="item.key"
-            :value="item.key"
+          <el-option-group
+            v-for="group in keyOptions"
+            :key="group.label"
+            :label="group.label"
           >
-          </el-option>
-        </el-option-group>
-      </el-select>
-      <BaseValueOption
-        :valueOptionType="valueOptionType"
-        :selected-key-option="selectedKeyOption"
-        :section="section"
-      />
-    </el-row>
+            <el-option
+              v-for="item in group.options"
+              :key="item.key"
+              :label="item.key"
+              :value="item.key"
+            >
+            </el-option>
+          </el-option-group>
+        </el-select>
+        <BaseValueOption
+          :valueOptionType="valueOptionType"
+          :selected-key-option="selectedKeyOption"
+          :section="section"
+        />
+      </el-row>
+    </template>
+    <template v-else>
+      <i class="el-icon-info"></i>没有专有配置项，仅供展示
+    </template>
   </el-form>
 </template>
 <script>
@@ -44,7 +49,7 @@ export default {
   },
   data: () => {
     return {
-      localConfig: {},
+      localConfig: null,
       keyOptions: [],
       selectedKeyOption: null,
       valueOptionType: null
@@ -52,13 +57,15 @@ export default {
   },
   mounted() {
     this.localConfig = config[this.section]
-    this.keyOptions = Object.entries(groupBy(this.localConfig, item => item.type)).map(([key, value]) => {
-      return {
-        label: key,
-        options: value
-      }
-    })
-    console.log(this.keyOptions, 'configuration key options')
+    if (this.localConfig) {
+      this.keyOptions = Object.entries(groupBy(this.localConfig, item => item.type)).map(([key, value]) => {
+        return {
+          label: key,
+          options: value
+        }
+      })
+      console.log(this.keyOptions, 'configuration key options')
+    }
   },
   methods: {
     onKeyChanged () {

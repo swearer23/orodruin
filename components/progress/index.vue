@@ -32,11 +32,13 @@
         </div>
       </el-col>
     </el-row>
+    <Configuration />
   </section>
 </template>
 <script>
-
+import Configuration from '../configuration'
 export default {
+  components: {Configuration},
   data() {
     return {
       percentage: 10,
