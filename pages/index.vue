@@ -43,6 +43,7 @@
         <Alert />
         <Loading />
         <Message />
+        <MessageBox />
       </el-main>
     </el-container>
   </el-container>
@@ -70,6 +71,7 @@ import Badge from '@/components/badge'
 import Alert from '@/components/alert'
 import Loading from '@/components/loading'
 import Message from '@/components/message'
+import MessageBox from '@/components/messageBox'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -96,7 +98,8 @@ export default {
     Badge,
     Alert,
     Loading,
-    Message
+    Message,
+    MessageBox
   },
   data: () => {
     return {
