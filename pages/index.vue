@@ -33,6 +33,7 @@
         <Slider />
         <DatePicker />
         <Rate />
+        <Transfer />
       </el-main>
     </el-container>
   </el-container>
@@ -50,6 +51,7 @@ import ElSwitch from '@/components/switch'
 import Slider from '@/components/slider'
 import DatePicker from '@/components/datepicker'
 import Rate from '@/components/rate'
+import Transfer from '@/components/transfer'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -66,7 +68,8 @@ export default {
     ElSwitch,
     Slider,
     DatePicker,
-    Rate
+    Rate,
+    Transfer
   },
   data: () => {
     return {
