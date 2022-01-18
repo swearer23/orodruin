@@ -1,10 +1,15 @@
 <template>
-  <input type="color" v-model="selectedValueOption" @change="onValueChanged" />
+  <input type="color" :value="selectedValueOption" @change="onColorChanged" />
 </template>
 <script>
 import ValueOptionMixin from "./ValueOptionMixin"
 export default {
-  mixins: [ValueOptionMixin]
+  mixins: [ValueOptionMixin],
+  methods: {
+    onColorChanged (e) {
+      this.onValueChanged(e.currentTarget.value)
+    }
+  }
 }
 </script>
 <style lang="less" scoped>

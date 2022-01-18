@@ -42,6 +42,7 @@
         <Badge />
         <Alert />
         <Loading />
+        <Message />
       </el-main>
     </el-container>
   </el-container>
@@ -68,6 +69,7 @@ import Pagination from '@/components/pagination'
 import Badge from '@/components/badge'
 import Alert from '@/components/alert'
 import Loading from '@/components/loading'
+import Message from '@/components/message'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -93,7 +95,8 @@ export default {
     Pagination,
     Badge,
     Alert,
-    Loading
+    Loading,
+    Message
   },
   data: () => {
     return {
