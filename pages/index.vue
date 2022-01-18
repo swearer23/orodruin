@@ -37,6 +37,7 @@
         <Table />
         <Tag />
         <Progress />
+        <Tree />
       </el-main>
     </el-container>
   </el-container>
@@ -58,6 +59,7 @@ import Transfer from '@/components/transfer'
 import Table from '@/components/table'
 import Tag from '@/components/tag'
 import Progress from '@/components/progress'
+import Tree from '@/components/tree'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -78,7 +80,8 @@ export default {
     Transfer,
     Table,
     Tag,
-    Progress
+    Progress,
+    Tree
   },
   data: () => {
     return {
