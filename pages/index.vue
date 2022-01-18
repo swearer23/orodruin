@@ -35,6 +35,7 @@
         <Rate />
         <Transfer />
         <Table />
+        <Tag />
       </el-main>
     </el-container>
   </el-container>
@@ -54,6 +55,7 @@ import DatePicker from '@/components/datepicker'
 import Rate from '@/components/rate'
 import Transfer from '@/components/transfer'
 import Table from '@/components/table'
+import Tag from '@/components/tag'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -72,7 +74,8 @@ export default {
     DatePicker,
     Rate,
     Transfer,
-    Table
+    Table,
+    Tag
   },
   data: () => {
     return {
