@@ -34,6 +34,7 @@
         <DatePicker />
         <Rate />
         <Transfer />
+        <Table />
       </el-main>
     </el-container>
   </el-container>
@@ -52,6 +53,7 @@ import Slider from '@/components/slider'
 import DatePicker from '@/components/datepicker'
 import Rate from '@/components/rate'
 import Transfer from '@/components/transfer'
+import Table from '@/components/table'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -69,7 +71,8 @@ export default {
     Slider,
     DatePicker,
     Rate,
-    Transfer
+    Transfer,
+    Table
   },
   data: () => {
     return {
