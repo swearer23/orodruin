@@ -36,6 +36,7 @@
         <Transfer />
         <Table />
         <Tag />
+        <Progress />
       </el-main>
     </el-container>
   </el-container>
@@ -56,6 +57,7 @@ import Rate from '@/components/rate'
 import Transfer from '@/components/transfer'
 import Table from '@/components/table'
 import Tag from '@/components/tag'
+import Progress from '@/components/progress'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -75,7 +77,8 @@ export default {
     Rate,
     Transfer,
     Table,
-    Tag
+    Tag,
+    Progress
   },
   data: () => {
     return {
