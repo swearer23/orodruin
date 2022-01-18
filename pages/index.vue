@@ -40,6 +40,7 @@
         <Tree />
         <Pagination />
         <Badge />
+        <Alert />
       </el-main>
     </el-container>
   </el-container>
@@ -64,6 +65,7 @@ import Progress from '@/components/progress'
 import Tree from '@/components/tree'
 import Pagination from '@/components/pagination'
 import Badge from '@/components/badge'
+import Alert from '@/components/alert'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -87,7 +89,8 @@ export default {
     Progress,
     Tree,
     Pagination,
-    Badge
+    Badge,
+    Alert
   },
   data: () => {
     return {
