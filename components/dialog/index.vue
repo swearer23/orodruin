@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2>对话框</h2>
+    <h2>文字提示</h2>
     <el-row style="margin-bottom: 20px; position: relative;">
       <el-dialog
         title="提示"
@@ -32,9 +32,10 @@ export default {
 }
 </script>
 <style lang="less">
-.el-dialog__wrapper {
+.el-row .el-dialog__wrapper {
   position: relative;
   div.el-dialog {
+    position: relative;
     margin: 5px;
   }
 }

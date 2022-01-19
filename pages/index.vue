@@ -48,6 +48,7 @@
         <Menu />
         <Tabs />
         <Dialog />
+        <Tooltip />
       </el-main>
     </el-container>
   </el-container>
@@ -80,6 +81,7 @@ import Notification from '@/components/notification'
 import Menu from '@/components/menu'
 import Tabs from '@/components/tabs'
 import Dialog from '@/components/dialog'
+import Tooltip from '@/components/tooltip'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -111,7 +113,8 @@ export default {
     Notification,
     Menu,
     Tabs,
-    Dialog
+    Dialog,
+    Tooltip
   },
   data: () => {
     return {
