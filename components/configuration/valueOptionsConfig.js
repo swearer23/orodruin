@@ -14,7 +14,8 @@ export default {
     {label: '无圆角', value: '$--border-radius-zero'}
   ],
   padding: INPUT_OPTION_TYPE.TEXT,
-  height: () => [...Array(200).keys()].map(i => `${i+1}px`),
+  height: INPUT_OPTION_TYPE.TEXT,
+  width: INPUT_OPTION_TYPE.TEXT,
   color: INPUT_OPTION_TYPE.COLOR,
   margin: INPUT_OPTION_TYPE.TEXT
 }
