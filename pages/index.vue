@@ -49,6 +49,7 @@
         <Tabs />
         <Dialog />
         <Tooltip />
+        <Popover />
       </el-main>
     </el-container>
   </el-container>
@@ -82,6 +83,7 @@ import Menu from '@/components/menu'
 import Tabs from '@/components/tabs'
 import Dialog from '@/components/dialog'
 import Tooltip from '@/components/tooltip'
+import Popover from '@/components/popover'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -114,7 +116,8 @@ export default {
     Menu,
     Tabs,
     Dialog,
-    Tooltip
+    Tooltip,
+    Popover
   },
   data: () => {
     return {
