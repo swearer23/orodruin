@@ -52,6 +52,7 @@
         <Popover />
         <Card />
         <Carousel />
+        <Collapse />
       </el-main>
     </el-container>
   </el-container>
@@ -88,6 +89,7 @@ import Tooltip from '@/components/tooltip'
 import Popover from '@/components/popover'
 import Card from '@/components/card'
 import Carousel from '@/components/carousel'
+import Collapse from '@/components/collapse'
 
 import { mapActions, mapState } from 'vuex'
 export default {
@@ -123,7 +125,8 @@ export default {
     Tooltip,
     Popover,
     Card,
-    Carousel
+    Carousel,
+    Collapse
   },
   data: () => {
     return {
