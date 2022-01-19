@@ -9,10 +9,9 @@
         content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
         :value="true"
       >
-        <el-button slot="reference">CLICK ME</el-button>
       </el-popover>
     </el-row>
-    <Configuration section="tooltip" />
+    <Configuration section="popover" />
   </section>
 </template>
 <script>
