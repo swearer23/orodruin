@@ -2,8 +2,7 @@
   {
     "name": "index",
     "path": "/",
-    "component": "/mnt/d/github/orodruin/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_2e33e208"
+    "component": "/Users/admin/myOwnProjects/orodruin/pages/index.vue",
+    "chunkName": "pages/index"
   }
 ]
