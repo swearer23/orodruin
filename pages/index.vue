@@ -10,8 +10,8 @@
         </el-col>
         <el-col :span="8">
           <el-button-group style="float: right; ">
-            <el-button type='info' icon='el-icon-delete' v-on:click="reset">重置</el-button>
-            <el-button type='primary' icon='el-icon-download'>下载</el-button>
+            <el-button type='info' icon='el-icon-delete' @click="reset">重置</el-button>
+            <el-button type='primary' icon='el-icon-download' @click="download">下载</el-button>
           </el-button-group>
         </el-col>
       </el-row>
@@ -157,7 +157,8 @@ export default {
   methods: {
     ...mapActions({
       getTheme: 'get',
-      deleteConfig: 'deleteConfig'
+      deleteConfig: 'deleteConfig',
+      downloadTheme: 'downloadTheme'
     }),
     reset () {
       this.deleteConfig()
@@ -167,6 +168,9 @@ export default {
         return section.title === title
       })
       return ret.declarations
+    },
+    download () {
+      this.downloadTheme()
     }
   }
 }

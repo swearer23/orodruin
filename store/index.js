@@ -61,6 +61,15 @@ export const actions = {
     } catch (err) {
       console.error(err)
     }
+  },
+
+  async downloadTheme (context) {
+    try {
+      context.commit('onStartLoading')
+      await axios.post('http://localhost:3000/api/download-theme')
+    } catch (err) {
+      console.error(err)
+    }
   }
 }
 

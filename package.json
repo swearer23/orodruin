@@ -11,6 +11,7 @@
     "cookie": "^0.4.1",
     "element-themex": "^1.0.3",
     "element-ui": "^2.15.6",
+    "jszip": "^3.7.1",
     "less": "^4.1.2",
     "less-loader": "^7.1.0",
     "nuxt": "^2.15.8",

@@ -10,6 +10,7 @@
         "cookie": "^0.4.1",
         "element-themex": "^1.0.3",
         "element-ui": "^2.15.6",
+        "jszip": "^3.7.1",
         "less": "^4.1.2",
         "less-loader": "^7.1.0",
         "nuxt": "^2.15.8",
@@ -10731,6 +10732,11 @@
         "node": ">=0.10.0"
       }
     },
+    "node_modules/immediate": {
+      "version": "3.0.6",
+      "resolved": "https://registry.nlark.com/immediate/download/immediate-3.0.6.tgz",
+      "integrity": "sha1-nbHb0Pr43m++D13V5Wu2BigN5ps="
+    },
     "node_modules/import-cwd": {
       "version": "2.1.0",
       "resolved": "https://registry.nlark.com/import-cwd/download/import-cwd-2.1.0.tgz",
@@ -11580,6 +11586,44 @@
         "node": ">=0.6.0"
       }
     },
+    "node_modules/jszip": {
+      "version": "3.7.1",
+      "resolved": "https://registry.npmmirror.com/jszip/download/jszip-3.7.1.tgz",
+      "integrity": "sha512-ghL0tz1XG9ZEmRMcEN2vt7xabrDdqHHeykgARpmZ0BiIctWxM47Vt63ZO2dnp4QYt/xJVLLy5Zv1l/xRdh2byg==",
+      "dependencies": {
+        "lie": "~3.3.0",
+        "pako": "~1.0.2",
+        "readable-stream": "~2.3.6",
+        "set-immediate-shim": "~1.0.1"
+      }
+    },
+    "node_modules/jszip/node_modules/isarray": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmmirror.com/isarray/download/isarray-1.0.0.tgz",
+      "integrity": "sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ=="
+    },
+    "node_modules/jszip/node_modules/readable-stream": {
+      "version": "2.3.7",
+      "resolved": "https://registry.nlark.com/readable-stream/download/readable-stream-2.3.7.tgz",
+      "integrity": "sha1-Hsoc9xGu+BTAT2IlKjamL2yyO1c=",
+      "dependencies": {
+        "core-util-is": "~1.0.0",
+        "inherits": "~2.0.3",
+        "isarray": "~1.0.0",
+        "process-nextick-args": "~2.0.0",
+        "safe-buffer": "~5.1.1",
+        "string_decoder": "~1.1.1",
+        "util-deprecate": "~1.0.1"
+      }
+    },
+    "node_modules/jszip/node_modules/string_decoder": {
+      "version": "1.1.1",
+      "resolved": "https://registry.nlark.com/string_decoder/download/string_decoder-1.1.1.tgz",
+      "integrity": "sha1-nPFhG6YmhdcDCunkujQUnDrwP8g=",
+      "dependencies": {
+        "safe-buffer": "~5.1.0"
+      }
+    },
     "node_modules/just-debounce": {
       "version": "1.1.0",
       "resolved": "https://registry.nlark.com/just-debounce/download/just-debounce-1.1.0.tgz",
@@ -11750,6 +11794,14 @@
       "optional": true,
       "engines": {
         "node": ">=0.10.0"
+      }
+    },
+    "node_modules/lie": {
+      "version": "3.3.0",
+      "resolved": "https://registry.nlark.com/lie/download/lie-3.3.0.tgz",
+      "integrity": "sha1-3Pgt7lRfRgdNryAMfBxaCOD0D2o=",
+      "dependencies": {
+        "immediate": "~3.0.5"
       }
     },
     "node_modules/liftoff": {
@@ -17839,6 +17891,14 @@
       "version": "2.0.0",
       "resolved": "https://registry.npm.taobao.org/set-blocking/download/set-blocking-2.0.0.tgz",
       "integrity": "sha1-BF+XgtARrppoA93TgrJDkrPYkPc="
+    },
+    "node_modules/set-immediate-shim": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmmirror.com/set-immediate-shim/download/set-immediate-shim-1.0.1.tgz",
+      "integrity": "sha1-SysbJ+uAip+NzEgaWOXlb1mfP2E=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
     },
     "node_modules/set-value": {
       "version": "2.0.1",
@@ -28761,7 +28821,8 @@
       }
     },
     "graceful-fs": {
-      "version": "4.2.2"
+      "version": "4.2.2",
+      "integrity": "sha1-bwlSYF0BQMHP2xOO0AV3W5LWewI="
     },
     "graceful-readlink": {
       "version": "1.0.1",
@@ -29893,6 +29954,11 @@
       "integrity": "sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=",
       "optional": true
     },
+    "immediate": {
+      "version": "3.0.6",
+      "resolved": "https://registry.nlark.com/immediate/download/immediate-3.0.6.tgz",
+      "integrity": "sha1-nbHb0Pr43m++D13V5Wu2BigN5ps="
+    },
     "import-cwd": {
       "version": "2.1.0",
       "resolved": "https://registry.nlark.com/import-cwd/download/import-cwd-2.1.0.tgz",
@@ -30537,6 +30603,46 @@
         "verror": "1.10.0"
       }
     },
+    "jszip": {
+      "version": "3.7.1",
+      "resolved": "https://registry.npmmirror.com/jszip/download/jszip-3.7.1.tgz",
+      "integrity": "sha512-ghL0tz1XG9ZEmRMcEN2vt7xabrDdqHHeykgARpmZ0BiIctWxM47Vt63ZO2dnp4QYt/xJVLLy5Zv1l/xRdh2byg==",
+      "requires": {
+        "lie": "~3.3.0",
+        "pako": "~1.0.2",
+        "readable-stream": "~2.3.6",
+        "set-immediate-shim": "~1.0.1"
+      },
+      "dependencies": {
+        "isarray": {
+          "version": "1.0.0",
+          "resolved": "https://registry.npmmirror.com/isarray/download/isarray-1.0.0.tgz",
+          "integrity": "sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ=="
+        },
+        "readable-stream": {
+          "version": "2.3.7",
+          "resolved": "https://registry.nlark.com/readable-stream/download/readable-stream-2.3.7.tgz",
+          "integrity": "sha1-Hsoc9xGu+BTAT2IlKjamL2yyO1c=",
+          "requires": {
+            "core-util-is": "~1.0.0",
+            "inherits": "~2.0.3",
+            "isarray": "~1.0.0",
+            "process-nextick-args": "~2.0.0",
+            "safe-buffer": "~5.1.1",
+            "string_decoder": "~1.1.1",
+            "util-deprecate": "~1.0.1"
+          }
+        },
+        "string_decoder": {
+          "version": "1.1.1",
+          "resolved": "https://registry.nlark.com/string_decoder/download/string_decoder-1.1.1.tgz",
+          "integrity": "sha1-nPFhG6YmhdcDCunkujQUnDrwP8g=",
+          "requires": {
+            "safe-buffer": "~5.1.0"
+          }
+        }
+      }
+    },
     "just-debounce": {
       "version": "1.1.0",
       "resolved": "https://registry.nlark.com/just-debounce/download/just-debounce-1.1.0.tgz",
@@ -30673,6 +30779,14 @@
         "klona": "^2.0.4",
         "loader-utils": "^2.0.0",
         "schema-utils": "^3.0.0"
+      }
+    },
+    "lie": {
+      "version": "3.3.0",
+      "resolved": "https://registry.nlark.com/lie/download/lie-3.3.0.tgz",
+      "integrity": "sha1-3Pgt7lRfRgdNryAMfBxaCOD0D2o=",
+      "requires": {
+        "immediate": "~3.0.5"
       }
     },
     "liftoff": {
@@ -35629,6 +35743,11 @@
       "version": "2.0.0",
       "resolved": "https://registry.npm.taobao.org/set-blocking/download/set-blocking-2.0.0.tgz",
       "integrity": "sha1-BF+XgtARrppoA93TgrJDkrPYkPc="
+    },
+    "set-immediate-shim": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmmirror.com/set-immediate-shim/download/set-immediate-shim-1.0.1.tgz",
+      "integrity": "sha1-SysbJ+uAip+NzEgaWOXlb1mfP2E="
     },
     "set-value": {
       "version": "2.0.1",

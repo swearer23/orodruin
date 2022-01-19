@@ -29,5 +29,5 @@ export const getValidCssFolder = uuid => {
 }
 
 export const getRelativeCssFilePath = uuid => {
-  return isCssFileExist(uuid) ? `${ROOT_CSS_PATH_FOR_SERVE}/${uuid}/index.css` : undefined
+  return isCssFileExist(uuid) ? `${ROOT_CSS_PATH_FOR_SERVE}${uuid}/index.css` : undefined
 }

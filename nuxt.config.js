@@ -28,6 +28,10 @@ module.exports = {
       handler: '~/server-middleware/update-theme.js'
     },
     {
+      path: "/api/download-theme",
+      handler: '~/server-middleware/download-theme.js'
+    },
+    {
       path: "/api/reset",
       handler: '~/server-middleware/reset.js'
     }
