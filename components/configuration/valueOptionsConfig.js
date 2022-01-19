@@ -17,5 +17,6 @@ export default {
   height: INPUT_OPTION_TYPE.TEXT,
   width: INPUT_OPTION_TYPE.TEXT,
   color: INPUT_OPTION_TYPE.COLOR,
-  margin: INPUT_OPTION_TYPE.TEXT
+  margin: INPUT_OPTION_TYPE.TEXT,
+  size: INPUT_OPTION_TYPE.TEXT
 }

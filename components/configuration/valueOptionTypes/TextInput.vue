@@ -22,6 +22,11 @@ export default {
     return {valueCopy: ''}
   },
   mixins: [ValueOptionMixin],
+  watch: {
+    selectedValueOption () {
+      this.valueCopy = this.selectedValueOption
+    }
+  },
   mounted () {
     this.valueCopy = this.selectedValueOption
   }

@@ -64,7 +64,6 @@ export default {
           options: value
         }
       })
-      console.log(this.keyOptions, 'configuration key options')
     }
   },
   methods: {
