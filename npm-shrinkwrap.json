@@ -7,9 +7,11 @@
       "name": "my-app",
       "dependencies": {
         "axios": "^0.24.0",
+        "b64-to-blob": "^1.2.19",
         "cookie": "^0.4.1",
         "element-themex": "^1.0.3",
         "element-ui": "^2.15.6",
+        "file-saver": "^2.0.5",
         "jszip": "^3.7.1",
         "less": "^4.1.2",
         "less-loader": "^7.1.0",
@@ -3996,6 +3998,11 @@
       "dependencies": {
         "follow-redirects": "^1.14.4"
       }
+    },
+    "node_modules/b64-to-blob": {
+      "version": "1.2.19",
+      "resolved": "https://registry.npm.taobao.org/b64-to-blob/download/b64-to-blob-1.2.19.tgz",
+      "integrity": "sha1-FX2F/ciBFmW5o10p/7xqUiuij74="
     },
     "node_modules/babel-helper-vue-jsx-merge-props": {
       "version": "2.0.3",
@@ -8446,6 +8453,11 @@
       "peerDependencies": {
         "webpack": "^4.0.0 || ^5.0.0"
       }
+    },
+    "node_modules/file-saver": {
+      "version": "2.0.5",
+      "resolved": "https://registry.npmmirror.com/file-saver/download/file-saver-2.0.5.tgz",
+      "integrity": "sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA=="
     },
     "node_modules/file-uri-to-path": {
       "version": "1.0.0",
@@ -24527,6 +24539,11 @@
         "follow-redirects": "^1.14.4"
       }
     },
+    "b64-to-blob": {
+      "version": "1.2.19",
+      "resolved": "https://registry.npm.taobao.org/b64-to-blob/download/b64-to-blob-1.2.19.tgz",
+      "integrity": "sha1-FX2F/ciBFmW5o10p/7xqUiuij74="
+    },
     "babel-helper-vue-jsx-merge-props": {
       "version": "2.0.3",
       "resolved": "https://registry.nlark.com/babel-helper-vue-jsx-merge-props/download/babel-helper-vue-jsx-merge-props-2.0.3.tgz",
@@ -28121,6 +28138,11 @@
         "loader-utils": "^2.0.0",
         "schema-utils": "^3.0.0"
       }
+    },
+    "file-saver": {
+      "version": "2.0.5",
+      "resolved": "https://registry.npmmirror.com/file-saver/download/file-saver-2.0.5.tgz",
+      "integrity": "sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA=="
     },
     "file-uri-to-path": {
       "version": "1.0.0",

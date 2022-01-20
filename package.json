@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "b64-to-blob": "^1.2.19",
     "cookie": "^0.4.1",
     "element-themex": "^1.0.3",
     "element-ui": "^2.15.6",
+    "file-saver": "^2.0.5",
     "jszip": "^3.7.1",
     "less": "^4.1.2",
     "less-loader": "^7.1.0",

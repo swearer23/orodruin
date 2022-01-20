@@ -14,7 +14,8 @@ const main = (uuid, content) => {
       }
       const ret = et.run({
         config: scssFilePath,
-        out: outputpath 
+        out: outputpath,
+        minimize: true
       }, () => {
         resolve()
       })

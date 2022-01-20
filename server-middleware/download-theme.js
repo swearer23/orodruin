@@ -1,23 +1,25 @@
 import fs from 'fs'
 import { parse } from 'cookie'
 import { isCssFileExist, getValidCssFolder } from './utils'
+import path from 'path'
 import JSZip from "jszip"
 
 
-const addFilesFromDirectoryToZip = (directoryPath = "", zip) => {
-  const directoryContents = fs.readdirSync(directoryPath, {
+const addFilesFromDirectoryToZip = (uuid, zipFolder, relativePath = '') => {
+  const directoryPath = getValidCssFolder(uuid)
+  const directoryContents = fs.readdirSync(path.resolve(directoryPath, relativePath), {
     withFileTypes: true,
   });
  
   directoryContents.forEach(({ name }) => {
-    const path = `${directoryPath}/${name}`;
+    const absPath = `${path.resolve(directoryPath, relativePath)}/${name}`;
 
-    if (fs.statSync(path).isFile()) {
-      zip.file(path, fs.readFileSync(path, "utf-8"));
+    if (fs.statSync(absPath).isFile()) {
+      zipFolder.file(path.relative(directoryPath, absPath), fs.readFileSync(absPath, "utf-8"));
     }
 
-    if (fs.statSync(path).isDirectory()) {
-      addFilesFromDirectoryToZip(path, zip);
+    if (fs.statSync(absPath).isDirectory()) {
+      addFilesFromDirectoryToZip(uuid, zipFolder, path.relative(directoryPath, absPath))
     }
   });
 };
@@ -30,7 +32,7 @@ export default async function (req, res, next) {
     const ret = {}
     if (isCssFileExist(uuid)) {
       const zip = new JSZip()
-      addFilesFromDirectoryToZip(getValidCssFolder(uuid), zip)
+      addFilesFromDirectoryToZip(uuid, zip.folder('theme'))
       const zipAsBase64 = await zip.generateAsync({ type: "base64" });
       res.writeHead(200, {"Content-Type": "plain/text"})
       res.end(zipAsBase64)

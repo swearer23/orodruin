@@ -1,5 +1,8 @@
 export * as getters from './getters'
 import axios from 'axios'
+import b64ToBlob from "b64-to-blob"
+import fileSaver from "file-saver"
+import { Message } from 'element-ui'
 
 const updateCssDomNode = cssPath => {
   if (cssPath) {
@@ -66,9 +69,13 @@ export const actions = {
   async downloadTheme (context) {
     try {
       context.commit('onStartLoading')
-      await axios.post('http://localhost:3000/api/download-theme')
+      const base64 = await axios.post('http://localhost:3000/api/download-theme')
+      fileSaver.saveAs(b64ToBlob(base64.data, "application/zip"), 'theme.zip')
     } catch (err) {
+      Message.error(err.message)
       console.error(err)
+    } finally {
+      context.commit('onFinishLoading')
     }
   }
 }
@@ -82,6 +89,9 @@ export const mutations = {
   },
   onStartLoading (state) {
     state.isLoading = true
+  },
+  onFinishLoading (state) {
+    state.isLoading = false
   },
   onFinishedReset (state) {
     state.isLoading = false

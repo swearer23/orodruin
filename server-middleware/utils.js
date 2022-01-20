@@ -28,6 +28,10 @@ export const getValidCssFolder = uuid => {
   return `${CSS_FOLDER}/${uuid}`
 }
 
+export const getRelativeCssFolderPath = uuid => {
+  return `../static/.css_files/${uuid}`
+}
+
 export const getRelativeCssFilePath = uuid => {
   return isCssFileExist(uuid) ? `${ROOT_CSS_PATH_FOR_SERVE}${uuid}/index.css` : undefined
 }
