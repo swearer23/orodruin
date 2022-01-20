@@ -12,6 +12,7 @@
         "element-themex": "^1.0.3",
         "element-ui": "^2.15.6",
         "file-saver": "^2.0.5",
+        "formidable": "^2.0.1",
         "jszip": "^3.7.1",
         "less": "^4.1.2",
         "less-loader": "^7.1.0",
@@ -3812,6 +3813,11 @@
         "node": ">=0.10.0"
       }
     },
+    "node_modules/asap": {
+      "version": "2.0.6",
+      "resolved": "https://registry.nlark.com/asap/download/asap-2.0.6.tgz",
+      "integrity": "sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY="
+    },
     "node_modules/asn1": {
       "version": "0.2.6",
       "resolved": "https://registry.npmmirror.com/asn1/download/asn1-0.2.6.tgz?cache=0&sync_timestamp=1635986760581&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fasn1%2Fdownload%2Fasn1-0.2.6.tgz",
@@ -6573,6 +6579,15 @@
       "resolved": "https://registry.npm.taobao.org/devalue/download/devalue-2.0.1.tgz?cache=0&sync_timestamp=1617276562187&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdevalue%2Fdownload%2Fdevalue-2.0.1.tgz",
       "integrity": "sha1-XTaPmtwJKOR7d+6lPKYNLzRvl2I="
     },
+    "node_modules/dezalgo": {
+      "version": "1.0.3",
+      "resolved": "https://registry.npm.taobao.org/dezalgo/download/dezalgo-1.0.3.tgz",
+      "integrity": "sha1-f3Qt4Gb8dIvI24IFad3c5Jvw1FY=",
+      "dependencies": {
+        "asap": "^2.0.0",
+        "wrappy": "1"
+      }
+    },
     "node_modules/diffie-hellman": {
       "version": "5.0.3",
       "resolved": "https://registry.nlark.com/diffie-hellman/download/diffie-hellman-5.0.3.tgz",
@@ -8736,6 +8751,29 @@
         "node": ">= 0.12"
       }
     },
+    "node_modules/formidable": {
+      "version": "2.0.1",
+      "resolved": "https://registry.npmmirror.com/formidable/download/formidable-2.0.1.tgz",
+      "integrity": "sha1-QxC8eWXRhVNvlWUYTe50+7dVV/8=",
+      "license": "MIT",
+      "dependencies": {
+        "dezalgo": "1.0.3",
+        "hexoid": "1.0.0",
+        "once": "1.4.0",
+        "qs": "6.9.3"
+      },
+      "funding": {
+        "url": "https://ko-fi.com/tunnckoCore/commissions"
+      }
+    },
+    "node_modules/formidable/node_modules/qs": {
+      "version": "6.9.3",
+      "resolved": "https://registry.npmmirror.com/qs/download/qs-6.9.3.tgz",
+      "integrity": "sha512-EbZYNarm6138UKKq46tdx08Yo/q9ZhFoAXAI1meAFd2GtbRDhbZY2WQSICskT0c5q99aFzLG1D4nvTk9tqfXIw==",
+      "engines": {
+        "node": ">=0.6"
+      }
+    },
     "node_modules/fragment-cache": {
       "version": "0.2.1",
       "resolved": "https://registry.npm.taobao.org/fragment-cache/download/fragment-cache-0.2.1.tgz",
@@ -10411,6 +10449,14 @@
       "version": "1.1.0",
       "resolved": "https://registry.nlark.com/hex-color-regex/download/hex-color-regex-1.1.0.tgz",
       "integrity": "sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4="
+    },
+    "node_modules/hexoid": {
+      "version": "1.0.0",
+      "resolved": "https://registry.nlark.com/hexoid/download/hexoid-1.0.0.tgz",
+      "integrity": "sha1-rRDGVz+5B94j2exjpxEmfZ3JvBg=",
+      "engines": {
+        "node": ">=8"
+      }
     },
     "node_modules/hmac-drbg": {
       "version": "1.0.1",
@@ -24380,6 +24426,11 @@
       "resolved": "https://registry.nlark.com/array-unique/download/array-unique-0.3.2.tgz",
       "integrity": "sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg="
     },
+    "asap": {
+      "version": "2.0.6",
+      "resolved": "https://registry.nlark.com/asap/download/asap-2.0.6.tgz",
+      "integrity": "sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY="
+    },
     "asn1": {
       "version": "0.2.6",
       "resolved": "https://registry.npmmirror.com/asn1/download/asn1-0.2.6.tgz?cache=0&sync_timestamp=1635986760581&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fasn1%2Fdownload%2Fasn1-0.2.6.tgz",
@@ -26611,6 +26662,15 @@
       "resolved": "https://registry.npm.taobao.org/devalue/download/devalue-2.0.1.tgz?cache=0&sync_timestamp=1617276562187&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdevalue%2Fdownload%2Fdevalue-2.0.1.tgz",
       "integrity": "sha1-XTaPmtwJKOR7d+6lPKYNLzRvl2I="
     },
+    "dezalgo": {
+      "version": "1.0.3",
+      "resolved": "https://registry.npm.taobao.org/dezalgo/download/dezalgo-1.0.3.tgz",
+      "integrity": "sha1-f3Qt4Gb8dIvI24IFad3c5Jvw1FY=",
+      "requires": {
+        "asap": "^2.0.0",
+        "wrappy": "1"
+      }
+    },
     "diffie-hellman": {
       "version": "5.0.3",
       "resolved": "https://registry.nlark.com/diffie-hellman/download/diffie-hellman-5.0.3.tgz",
@@ -28355,6 +28415,24 @@
         "mime-types": "^2.1.12"
       }
     },
+    "formidable": {
+      "version": "2.0.1",
+      "resolved": "https://registry.npmmirror.com/formidable/download/formidable-2.0.1.tgz",
+      "integrity": "sha1-QxC8eWXRhVNvlWUYTe50+7dVV/8=",
+      "requires": {
+        "dezalgo": "1.0.3",
+        "hexoid": "1.0.0",
+        "once": "1.4.0",
+        "qs": "6.9.3"
+      },
+      "dependencies": {
+        "qs": {
+          "version": "6.9.3",
+          "resolved": "https://registry.npmmirror.com/qs/download/qs-6.9.3.tgz",
+          "integrity": "sha512-EbZYNarm6138UKKq46tdx08Yo/q9ZhFoAXAI1meAFd2GtbRDhbZY2WQSICskT0c5q99aFzLG1D4nvTk9tqfXIw=="
+        }
+      }
+    },
     "fragment-cache": {
       "version": "0.2.1",
       "resolved": "https://registry.npm.taobao.org/fragment-cache/download/fragment-cache-0.2.1.tgz",
@@ -29714,6 +29792,11 @@
       "version": "1.1.0",
       "resolved": "https://registry.nlark.com/hex-color-regex/download/hex-color-regex-1.1.0.tgz",
       "integrity": "sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4="
+    },
+    "hexoid": {
+      "version": "1.0.0",
+      "resolved": "https://registry.nlark.com/hexoid/download/hexoid-1.0.0.tgz",
+      "integrity": "sha1-rRDGVz+5B94j2exjpxEmfZ3JvBg="
     },
     "hmac-drbg": {
       "version": "1.0.1",

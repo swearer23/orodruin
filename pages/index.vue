@@ -11,6 +11,7 @@
         <el-col :span="8">
           <el-button-group style="float: right; ">
             <el-button type='info' icon='el-icon-delete' @click="reset">重置</el-button>
+            <el-button type='info' icon='el-icon-upload' @click="confirmUpload">上传已有CSS文件</el-button>
             <el-button type='primary' icon='el-icon-download' @click="download">下载</el-button>
           </el-button-group>
         </el-col>
@@ -56,6 +57,10 @@
         <Avatar />
       </el-main>
     </el-container>
+    <Upload
+      v-if="confirmVisible"
+      @close="confirmVisible = false"
+    />
   </el-container>
 </template>
 <script>
@@ -93,6 +98,8 @@ import Carousel from '@/components/carousel'
 import Collapse from '@/components/collapse'
 import Avatar from '@/components/avatar'
 
+import Upload from './components/upload.vue'
+
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'editor',
@@ -129,11 +136,12 @@ export default {
     Card,
     Carousel,
     Collapse,
-    Avatar
+    Avatar,
+    Upload
   },
   data: () => {
     return {
-      runtime: null
+      confirmVisible: false
     }
   },
   computed: mapState({
@@ -171,6 +179,9 @@ export default {
     },
     download () {
       this.downloadTheme()
+    },
+    confirmUpload () {
+      this.confirmVisible = true
     }
   }
 }
@@ -194,5 +205,9 @@ export default {
     border-radius: 4px;
     padding: 10px;
     margin-bottom: 10px;
+  }
+  .upload-demo {
+    width: auto;
+    display: inline-block;
   }
 </style>

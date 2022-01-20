@@ -1,5 +1,12 @@
 [
   {
+    "name": "components-upload",
+    "path": "/components/upload",
+    "component": "/Users/admin/myOwnProjects/orodruin/pages/components/upload.vue",
+    "chunkName": "pages/components/upload",
+    "_name": "_734de15a"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/Users/admin/myOwnProjects/orodruin/pages/index.vue",

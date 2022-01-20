@@ -34,6 +34,10 @@ module.exports = {
     {
       path: "/api/reset",
       handler: '~/server-middleware/reset.js'
+    },
+    {
+      path: "/api/upload-theme",
+      handler: '~/server-middleware/upload-theme.js'
     }
   ]
 }

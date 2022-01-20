@@ -4,6 +4,7 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _734de15a = () => interopDefault(import('../pages/components/upload.vue' /* webpackChunkName: "pages/components/upload" */))
 const _4ffdde8b = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -18,6 +19,10 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/components/upload",
+    component: _734de15a,
+    name: "components-upload"
+  }, {
     path: "/",
     component: _4ffdde8b,
     name: "index"
