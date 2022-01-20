@@ -10,9 +10,9 @@ element-ui scss theme configuration tool
 
 ## 需要主题
 
-由于 [element theme](https://github.com/ElementUI/element-theme) 在大于12的版本上运行不很正常
+由于 当前使用的 Node Sass 无法运行在nodejs > 14 的版本上
 
-因此你需要使用NVM或者其他方式把运行环境的nodejs版本设置到12以下
+因此你需要使用NVM或者其他方式把运行环境的nodejs版本设置到14以下
 
 ## 快速开始
 

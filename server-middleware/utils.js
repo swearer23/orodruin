@@ -35,3 +35,9 @@ export const getRelativeCssFolderPath = uuid => {
 export const getRelativeCssFilePath = uuid => {
   return isCssFileExist(uuid) ? `${ROOT_CSS_PATH_FOR_SERVE}${uuid}/index.css` : undefined
 }
+
+export const deleteCssDirByUUID = uuid => {
+  const cssFolderPath = getValidCssFolder(uuid)
+  if (cssFolderPath)
+    fs.rmdirSync(cssFolderPath, {recursive: true})
+}

@@ -1,8 +1,9 @@
-export * as getters from './getters'
 import axios from 'axios'
 import b64ToBlob from "b64-to-blob"
 import fileSaver from "file-saver"
 import { Message } from 'element-ui'
+import * as getters from './getters'
+export { getters }
 
 const updateCssDomNode = cssPath => {
   if (cssPath) {
@@ -33,6 +34,10 @@ export const state = () => ({
 export const actions = {
   configSection ({ commit }, sectionName) {
     commit('onStartConfigSection', sectionName)
+  },
+
+  startLoading ({commit}) {
+    commit('onStartLoading')
   },
 
   async get ({ commit }) {
@@ -77,6 +82,10 @@ export const actions = {
     } finally {
       context.commit('onFinishLoading')
     }
+  },
+
+  updateUploadedTheme ({commit}, payload) {
+    commit('onThemeUpdated', payload)
   }
 }
 

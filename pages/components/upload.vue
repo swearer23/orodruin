@@ -17,23 +17,33 @@
           action="http://localhost:3000/api/upload-theme"
           :show-file-list="false"
           name="cssfile"
-          accept=".css"
+          accept=".scss"
           :on-error="handleUploadError"
+          :on-success="handleUploadSuccess"
+          :before-upload="beforeUpload"
           :auto-upload="true">
-          <el-button type="primary" @click="doUpload">确 定</el-button>
+          <el-button type="primary">确 定</el-button>
         </el-upload>
       </template>
     </el-result>
   </el-dialog>
 </template>
 <script>
+import { mapActions } from 'vuex'
 export default {
+  name: "Upload",
   methods: {
+    ...mapActions(['startLoading', 'updateUploadedTheme']),
+    beforeUpload () {
+      this.$emit('close')
+      this.startLoading()
+    },
     handleUploadError (err) {
       this.$message.error(JSON.parse(err.message).errmsg)
     },
-    doUpload () {
-
+    handleUploadSuccess (response) {
+      this.updateUploadedTheme(response)
+      this.$message.success('上传成功')
     },
     handleClose () {
       this.$emit('close')

@@ -118,13 +118,13 @@ $--font-size-small: 13px !default;
 /// fontSize|1|Font Size|0
 $--font-size-extra-small: 12px !default;
 /// fontWeight|1|Font Weight|1
-$--font-weight-primary: 500 !default;
+$--font-weight-primary: 200 !default;
 /// fontWeight|1|Font Weight|1
 $--font-weight-secondary: 100 !default;
 /// fontLineHeight|1|Line Height|2
-$--font-line-height-primary: 24px !default;
+$--font-line-height-primary: 28px !default;
 /// fontLineHeight|1|Line Height|2
-$--font-line-height-secondary: 16px !default;
+$--font-line-height-secondary: 20px !default;
 $--font-color-disabled-base: #bbb !default;
 /* Size
 -------------------------- */
@@ -215,11 +215,11 @@ $--checkbox-button-checked-border-color: $--color-primary !default;
 /* Radio
 -------------------------- */
 /// fontSize||Font|1
-$--radio-font-size: $--font-size-base !default;
+$--radio-font-size: 14px !default;
 /// fontWeight||Font|1
-$--radio-font-weight: $--font-weight-primary !default;
+$--radio-font-weight: bold !default;
 /// color||Color|0
-$--radio-font-color: $--color-text-regular !default;
+$--radio-font-color: #4a1717 !default;
 $--radio-input-height: 14px !default;
 $--radio-input-width: 14px !default;
 /// borderRadius||Border|2
@@ -241,7 +241,7 @@ $--radio-disabled-checked-input-fill: $--disabled-fill-base !default;
 $--radio-disabled-checked-icon-color: $--color-text-placeholder !default;
 
 /// color||Color|0
-$--radio-checked-font-color: $--color-primary !default;
+$--radio-checked-font-color: #ec8d09 !default;
 /// color||Color|0
 $--radio-checked-input-border-color: $--color-primary !default;
 /// color||Color|0
@@ -376,11 +376,11 @@ $--message-close-size: 16px !default;
 $--message-close-hover-color: $--color-text-secondary !default;
 
 /// color||Color|0
-$--message-success-font-color: $--color-success !default;
+$--message-success-font-color: #338042 !default;
 /// color||Color|0
-$--message-info-font-color: $--color-info !default;
+$--message-info-font-color: [object Object] !default;
 /// color||Color|0
-$--message-warning-font-color: $--color-warning !default;
+$--message-warning-font-color: [object Object] !default;
 /// color||Color|0
 $--message-danger-font-color: $--color-danger !default;
 
@@ -418,7 +418,7 @@ $--notification-info-icon-color: $--color-info !default;
 /// color||Color|0
 $--notification-warning-icon-color: $--color-warning !default;
 /// color||Color|0
-$--notification-danger-icon-color: $--color-danger !default;
+$--notification-danger-icon-color: #ee1b1b !default;
 
 /* Input
 -------------------------- */
@@ -511,7 +511,7 @@ $--tab-vertical-header-count-fill: $--color-text-secondary !default;
 /// fontSize||Font|1
 $--button-font-size: $--font-size-base !default;
 /// fontWeight||Font|1
-$--button-font-weight: $--font-weight-primary !default;
+$--button-font-weight: normal !default;
 /// borderRadius||Border|2
 $--button-border-radius: $--border-radius-base !default;
 /// padding||Spacing|3
@@ -522,7 +522,7 @@ $--button-padding-horizontal: 20px !default;
 /// fontSize||Font|1
 $--button-medium-font-size: $--font-size-base !default;
 /// borderRadius||Border|2
-$--button-medium-border-radius: $--border-radius-base !default;
+$--button-medium-border-radius: $--border-radius-zero !default;
 /// padding||Spacing|3
 $--button-medium-padding-vertical: 10px !default;
 /// padding||Spacing|3
@@ -560,7 +560,7 @@ $--button-disabled-border-color: $--border-color-lighter !default;
 /// color||Color|0
 $--button-primary-border-color: $--color-primary !default;
 /// color||Color|0
-$--button-primary-font-color: $--color-white !default;
+$--button-primary-font-color: #fafafa !default;
 /// color||Color|0
 $--button-primary-background-color: $--color-primary !default;
 /// color||Color|0
@@ -736,7 +736,7 @@ $--dropdown-menuItem-hover-color: $--link-color !default;
 /* Badge
 -------------------------- */
 /// color||Color|0
-$--badge-background-color: $--color-danger !default;
+$--badge-background-color: [object Object] !default;
 $--badge-radius: 10px !default;
 /// fontSize||Font|1
 $--badge-font-size: 12px !default;
@@ -1008,23 +1008,23 @@ $--lg: 1200px !default;
 $--xl: 1920px !default;
 
 $--breakpoints: (
-  'xs' : (max-width: $--sm - 1),
-  'sm' : (min-width: $--sm),
-  'md' : (min-width: $--md),
-  'lg' : (min-width: $--lg),
-  'xl' : (min-width: $--xl)
+   'xs': (max-width: $--sm - 1),
+   'sm': (min-width: $--sm),
+   'md': (min-width: $--md),
+   'lg': (min-width: $--lg),
+   'xl': (min-width: $--xl)
 );
 
 $--breakpoints-spec: (
-  'xs-only' : (max-width: $--sm - 1),
-  'sm-and-up' : (min-width: $--sm),
+   'xs-only': (max-width: $--sm - 1),
+   'sm-and-up': (min-width: $--sm),
   'sm-only': "(min-width: #{$--sm}) and (max-width: #{$--md - 1})",
   'sm-and-down': (max-width: $--md - 1),
-  'md-and-up' : (min-width: $--md),
+   'md-and-up': (min-width: $--md),
   'md-only': "(min-width: #{$--md}) and (max-width: #{$--lg - 1})",
   'md-and-down': (max-width: $--lg - 1),
-  'lg-and-up' : (min-width: $--lg),
+   'lg-and-up': (min-width: $--lg),
   'lg-only': "(min-width: #{$--lg}) and (max-width: #{$--xl - 1})",
   'lg-and-down': (max-width: $--xl - 1),
-  'xl-only' : (min-width: $--xl),
+   'xl-only': (min-width: $--xl),
 );

@@ -1,7 +1,7 @@
 <template>
   <el-container
     class="main-container"
-    v-loading="isLoading"
+    v-loading.fullscreen.lock="isLoading"
   >
     <el-header style="height: auto">
       <el-row align="middle" type="flex">

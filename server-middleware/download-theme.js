@@ -1,6 +1,6 @@
 import fs from 'fs'
 import { parse } from 'cookie'
-import { isCssFileExist, getValidCssFolder } from './utils'
+import { isCssFileExist, getValidCssFolder, getValidScssFile } from './utils'
 import path from 'path'
 import JSZip from "jszip"
 
@@ -33,6 +33,7 @@ export default async function (req, res, next) {
     if (isCssFileExist(uuid)) {
       const zip = new JSZip()
       addFilesFromDirectoryToZip(uuid, zip.folder('theme'))
+      zip.file('index.scss', fs.readFileSync(getValidScssFile(uuid), "utf-8"))
       const zipAsBase64 = await zip.generateAsync({ type: "base64" });
       res.writeHead(200, {"Content-Type": "plain/text"})
       res.end(zipAsBase64)

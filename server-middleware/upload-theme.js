@@ -1,26 +1,38 @@
-import { parse }from 'cookie'
-import { generateFromCss } from './generate-scss'
+import fs from 'fs'
+import { parse, serialize }from 'cookie'
 import formidable from 'formidable'
 import { extname } from 'path'
+import themeProcessor from './parse-scss'
+import { SCSS_FOLDER } from './consts'
+import { deleteCssDirByUUID, getRelativeCssFilePath } from './utils'
+import { generateFromScssFile } from './generate-scss'
 
-export default async function (req, res, next) {
+export default function (req, res, next) {
   const cookies = parse(req.headers.cookie || '')
   const { uuid = uuidv4() } = cookies
   const form = new formidable.IncomingForm()
   form.parse(req, async (err, fields, files) => {
-    if (extname(files.cssfile.originalFilename) === '.css') {
+    if (extname(files.cssfile.originalFilename) === '.scss') {
       try {
-        generateFromCss(uuid, files.cssfile.filepath)
-        res.writeHead(200)
-        res.end()
+        const ret = {}
+        const scssFilePath = `${SCSS_FOLDER}/${uuid}.scss`
+        fs.renameSync(files.cssfile.filepath, scssFilePath)
+        deleteCssDirByUUID(uuid)
+        await generateFromScssFile(uuid)
+        ret.theme = await(themeProcessor(uuid))
+        ret.cssPath = getRelativeCssFilePath(uuid)
+        res.setHeader('Set-Cookie', serialize('uuid', uuid, { httpOnly: true }))
+        res.writeHead(200, {"Content-Type": "application/json"})
+        res.end(JSON.stringify(ret))
       } catch (err) {
+        console.error(err)
         res.writeHead(500)
-        res.end(JSON.stringify({errMsg: err.message}))
+        res.end(JSON.stringify({errmsg: err.message}))
       }
     } else {
       res.writeHead(400)
       res.end(JSON.stringify({
-        errmsg: 'only css file is allowed'
+        errmsg: 'only scss file is allowed'
       }))
     }
   })

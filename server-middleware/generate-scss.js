@@ -1,17 +1,22 @@
 import { writeFile } from 'fs'
 import { SCSS_FOLDER, CSS_FOLDER } from './consts'
 import et from 'element-themex'
+import { resolve } from 'path'
 
-export const generateFromCss = (uuid, cssfilepath) => {
+export const generateFromScssFile = uuid => {
   return new Promise((resolve, reject) => {
-    et.init(cssfilepath, (err, res) => {
-      console.log(111, res)
-      resolve()
-    }, err => {
-      console.log(222, err)
-      reject(err)
-    })
+    const scssFilePath = `${SCSS_FOLDER}/${uuid}.scss`
+    const outputpath = `${CSS_FOLDER}/${uuid}`
+    buildCssFromScss(scssFilePath, outputpath, () => {resolve()})
   })
+}
+
+export const buildCssFromScss = (scssFilePath, outputpath, callback) => {
+  const ret = et.run({
+    config: scssFilePath,
+    out: outputpath,
+    minimize: true
+  }, callback)
 }
 
 const main = (uuid, content) => {
@@ -23,13 +28,7 @@ const main = (uuid, content) => {
         reject(err)
         return
       }
-      const ret = et.run({
-        config: scssFilePath,
-        out: outputpath,
-        minimize: true
-      }, () => {
-        resolve()
-      })
+      buildCssFromScss(scssFilePath, outputpath, () => {resolve()})
     })
   })
 }
