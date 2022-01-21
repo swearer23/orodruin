@@ -14,7 +14,7 @@
         <el-upload
           class="upload-demo"
           ref="upload"
-          action="http://localhost:3000/api/upload-theme"
+          action="/api/upload-theme"
           :show-file-list="false"
           name="cssfile"
           accept=".scss"

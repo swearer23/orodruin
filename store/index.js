@@ -42,7 +42,7 @@ export const actions = {
 
   async get ({ commit }) {
     try {
-      const {data: {theme, cssPath}} = await axios.get('http://localhost:3000/api/get-theme')
+      const {data: {theme, cssPath}} = await axios.get('/api/get-theme')
       commit('onThemeUpdated', {theme, cssPath})
     } catch (err) {
       console.error(err)
@@ -52,7 +52,7 @@ export const actions = {
   async updateTheme (context, payload) {
     try {
       context.commit('onStartLoading')
-      const {data: {theme, cssPath}} = await axios.post('http://localhost:3000/api/update-theme', payload)
+      const {data: {theme, cssPath}} = await axios.post('/api/update-theme', payload)
       context.commit('onThemeUpdated', {theme, cssPath})
     } catch (err) {
       console.error(err)     
@@ -62,8 +62,8 @@ export const actions = {
   async deleteConfig (context) {
     try {
       context.commit('onStartLoading')
-      await axios.post('http://localhost:3000/api/reset')
-      const theme = await axios.get('http://localhost:3000/api/get-theme')
+      await axios.post('/api/reset')
+      const theme = await axios.get('/api/get-theme')
       document.querySelector('#chalk-style').remove()
       context.commit('onThemeUpdated', theme.data)
     } catch (err) {
@@ -74,7 +74,7 @@ export const actions = {
   async downloadTheme (context) {
     try {
       context.commit('onStartLoading')
-      const base64 = await axios.post('http://localhost:3000/api/download-theme')
+      const base64 = await axios.post('/api/download-theme')
       fileSaver.saveAs(b64ToBlob(base64.data, "application/zip"), 'theme.zip')
     } catch (err) {
       Message.error(err.message)
