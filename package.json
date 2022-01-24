@@ -4,7 +4,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "start": "nuxt start"
+    "start": "nuxt start",
+    "v": "node -v"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -17,6 +18,7 @@
     "jszip": "^3.7.1",
     "less": "^4.1.2",
     "less-loader": "^7.1.0",
+    "node": "14.18.3",
     "nuxt": "^2.15.8",
     "scss-parser": "^1.0.5",
     "uuid": "^8.3.2"

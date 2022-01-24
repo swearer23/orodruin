@@ -60,14 +60,16 @@ export const actions = {
   },
 
   async deleteConfig (context) {
-    try {
-      context.commit('onStartLoading')
-      await axios.post('/api/reset')
-      const theme = await axios.get('/api/get-theme')
-      document.querySelector('#chalk-style').remove()
-      context.commit('onThemeUpdated', theme.data)
-    } catch (err) {
-      console.error(err)
+    if (document.querySelector('#chalk-style')) {
+      try {
+        context.commit('onStartLoading')
+        await axios.post('/api/reset')
+        const theme = await axios.get('/api/get-theme')
+        document.querySelector('#chalk-style').remove()
+        context.commit('onThemeUpdated', theme.data)
+      } catch (err) {
+        console.error(err)
+      }
     }
   },
 
